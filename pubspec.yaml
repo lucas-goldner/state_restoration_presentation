@@ -1,0 +1,48 @@
+name: state_restoration_presentation
+description: "a presentation about state restoration for fluttercon berlin 2024"
+publish_to: "none"
+version: 0.1.0
+
+environment:
+  sdk: ">=3.3.3 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_animate: ^4.5.0
+  flutter_deck: ^0.14.0
+  flutter_svg: ^1.1.6
+  rive: ^0.13.5
+
+dev_dependencies:
+  dart_code_metrics: ^5.7.3
+  flutter_gen_runner: ^5.1.0+1
+  flutter_lints: ^4.0.0
+  flutter_test:
+    sdk: flutter
+  very_good_analysis: ^5.1.0
+
+flutter:
+  generate: true
+  uses-material-design: true
+
+  assets:
+    - assets/fonts/
+    - assets/images/
+    - assets/rive/
+
+  fonts:
+    - family: Graphik
+      fonts:
+        - asset: assets/fonts/GraphikSemibold.otf
+          weight: 600
+        - asset: assets/fonts/GraphikMedium.otf
+          weight: 500
+        - asset: assets/fonts/GraphikRegular.otf
+          weight: 400
+
+flutter_gen:
+  output: lib/generated
+  line_length: 80
+  integrations:
+    flutter_svg: true
