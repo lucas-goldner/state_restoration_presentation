@@ -12,8 +12,12 @@ class FlutterDeckExample extends StatelessWidget {
   Widget build(BuildContext context) => FlutterDeckApp(
         configuration: FlutterDeckConfiguration(
           background: const FlutterDeckBackgroundConfiguration(
-            light: FlutterDeckBackground.solid(Color(0xFFB5FFFC)),
-            dark: FlutterDeckBackground.solid(Color(0xFF16222A)),
+            light: FlutterDeckBackground.solid(
+              Color(0xFFB5FFFC),
+            ),
+            dark: FlutterDeckBackground.solid(
+              Color(0xFF16222A),
+            ),
           ),
           controls: const FlutterDeckControlsConfiguration(
             shortcuts: FlutterDeckShortcutsConfiguration(
