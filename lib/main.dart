@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deck/flutter_deck.dart';
 import 'package:state_restoration_presentation/slides/title/title.dart';
+import 'package:state_restoration_presentation/styles.dart';
 
 void main() => runApp(const FlutterDeckExample());
 
@@ -10,13 +11,14 @@ class FlutterDeckExample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => FlutterDeckApp(
+        themeMode: ThemeMode.light,
         configuration: FlutterDeckConfiguration(
           background: const FlutterDeckBackgroundConfiguration(
-            light: FlutterDeckBackground.solid(
-              Color(0xFFB5FFFC),
+            light: FlutterDeckBackground.gradient(
+              backgroundPrimary,
             ),
-            dark: FlutterDeckBackground.solid(
-              Color(0xFF16222A),
+            dark: FlutterDeckBackground.gradient(
+              backgroundDark,
             ),
           ),
           controls: const FlutterDeckControlsConfiguration(
@@ -38,7 +40,7 @@ class FlutterDeckExample extends StatelessWidget {
             widget: FlutterLogo(),
           ),
           marker: const FlutterDeckMarkerConfiguration(
-            color: Colors.cyan,
+            color: Color(0xFF3FE4C5),
             strokeWidth: 8,
           ),
           progressIndicator: const FlutterDeckProgressIndicator.gradient(
@@ -46,8 +48,8 @@ class FlutterDeckExample extends StatelessWidget {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                Colors.pink,
-                Colors.purple,
+                Color(0xFF0F1BCE),
+                Color(0xFF3FE4C5),
               ],
             ),
             backgroundColor: Colors.black,
