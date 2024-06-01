@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_deck/flutter_deck.dart';
+import 'package:state_restoration_presentation/core/extensions/context_ext.dart';
+import 'package:state_restoration_presentation/core/style/colors.dart';
 import 'package:state_restoration_presentation/generated/assets.gen.dart';
 
 class TitleSlide extends FlutterDeckSlideWidget {
@@ -78,6 +80,28 @@ class TitleSlide extends FlutterDeckSlideWidget {
                   .rotate(
                     curve: Curves.easeIn,
                     duration: const Duration(seconds: 12),
+                  ),
+            ),
+            Center(
+              child: Text(
+                context.l10n.presentationTitle,
+                style: context.textTheme.title.copyWith(
+                  fontSize: 54,
+                ),
+              )
+                  .animate(
+                    autoPlay: true,
+                    onPlay: (controller) => controller.repeat(),
+                  )
+                  .shimmer(
+                    duration: 3.seconds,
+                    colors: [
+                      flutterconBlue,
+                      flutterconGreen,
+                      flutterconBlue,
+                    ],
+                    stops: [0, 0.8, 1],
+                    curve: Curves.easeInQuad,
                   ),
             ),
           ],

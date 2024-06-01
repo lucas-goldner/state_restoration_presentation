@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deck/flutter_deck.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:state_restoration_presentation/core/style/colors.dart';
+import 'package:state_restoration_presentation/core/style/theme.dart';
+import 'package:state_restoration_presentation/slides/japanana/japanana.dart';
 import 'package:state_restoration_presentation/slides/title/title.dart';
-import 'package:state_restoration_presentation/styles.dart';
 
 void main() => runApp(const FlutterDeckExample());
 
@@ -11,16 +15,16 @@ class FlutterDeckExample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => FlutterDeckApp(
+        lightTheme: flutterDeckThemeLight,
+        darkTheme: flutterDeckThemeDark,
         themeMode: ThemeMode.light,
+        localizationsDelegates: const [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
         configuration: FlutterDeckConfiguration(
-          background: const FlutterDeckBackgroundConfiguration(
-            light: FlutterDeckBackground.gradient(
-              backgroundPrimary,
-            ),
-            dark: FlutterDeckBackground.gradient(
-              backgroundDark,
-            ),
-          ),
           controls: const FlutterDeckControlsConfiguration(
             shortcuts: FlutterDeckShortcutsConfiguration(
               toggleMarker: SingleActivator(
@@ -37,7 +41,6 @@ class FlutterDeckExample extends StatelessWidget {
           ),
           footer: const FlutterDeckFooterConfiguration(
             showSlideNumbers: true,
-            widget: FlutterLogo(),
           ),
           marker: const FlutterDeckMarkerConfiguration(
             color: Color(0xFF3FE4C5),
@@ -48,8 +51,8 @@ class FlutterDeckExample extends StatelessWidget {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                Color(0xFF0F1BCE),
-                Color(0xFF3FE4C5),
+                flutterconBlue,
+                flutterconGreen,
               ],
             ),
             backgroundColor: Colors.black,
@@ -62,6 +65,7 @@ class FlutterDeckExample extends StatelessWidget {
         ),
         slides: const [
           TitleSlide(),
+          Japanana(),
         ],
       );
 }
