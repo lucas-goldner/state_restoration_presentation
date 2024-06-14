@@ -21,7 +21,9 @@ class TitleSlide extends FlutterDeckSlideWidget {
           children: [
             Positioned(
               left: 20,
-              child: Assets.images.youtrust.image(width: 120, height: 120),
+              top: 20,
+              child:
+                  Assets.images.youtrustFullLogo.svg(width: 100, height: 100),
             ),
             const Positioned(
               top: 22,

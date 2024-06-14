@@ -53,6 +53,10 @@ class $AssetsImagesGen {
   AssetGenImage get youtrust =>
       const AssetGenImage('assets/images/youtrust.png');
 
+  /// File path: assets/images/youtrust_full_logo.svg
+  SvgGenImage get youtrustFullLogo =>
+      const SvgGenImage('assets/images/youtrust_full_logo.svg');
+
   /// List of all assets
   List<dynamic> get values => [
         flutterconLogo,
@@ -60,7 +64,8 @@ class $AssetsImagesGen {
         flutterconTower,
         flutterconTowerBase,
         lucas,
-        youtrust
+        youtrust,
+        youtrustFullLogo
       ];
 }
 

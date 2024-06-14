@@ -5,7 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:state_restoration_presentation/core/style/colors.dart';
 import 'package:state_restoration_presentation/core/style/theme.dart';
-import 'package:state_restoration_presentation/slides/japanana/japanana.dart';
+import 'package:state_restoration_presentation/slides/speaker/speaker.dart';
 import 'package:state_restoration_presentation/slides/title/title.dart';
 
 void main() => runApp(const FlutterDeckExample());
@@ -64,8 +64,8 @@ class FlutterDeckExample extends StatelessWidget {
           transition: const FlutterDeckTransition.fade(),
         ),
         slides: const [
+          SpeakerSlide(),
           TitleSlide(),
-          Japanana(),
         ],
       );
 }
