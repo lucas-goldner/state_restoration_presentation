@@ -5,6 +5,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deck/flutter_deck.dart';
 import 'package:flutter_webrtc/flutter_webrtc.dart';
+import 'package:state_restoration_presentation/core/extensions/context_ext.dart';
+import 'package:state_restoration_presentation/core/widgets/margins.dart';
 import 'package:state_restoration_presentation/slides/app_showcase/widgets/screen_dialog.dart';
 
 class AppShowCaseSlide extends FlutterDeckSlideWidget {
@@ -89,26 +91,35 @@ class _AppShowCaseState extends State<_AppShowCase> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const Spacer(),
-        Container(
-          width: 350,
-          height: 700,
-          decoration: BoxDecoration(
-            color: context.flutterDeckTheme.materialTheme.colorScheme.onSurface,
+  Widget build(BuildContext context) => Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            'Japanana App\n Showcase',
+            style: context.textTheme.title,
           ),
-          child: RTCVideoView(_localRenderer),
-        ),
-        CupertinoButton(
-          onPressed: () {
-            selectScreenSourceDialog(context);
-          },
-          child: const Text('Open App Showcase'),
-        ),
-        const Spacer(),
-      ],
-    );
-  }
+          horizontalMargin48,
+          Column(
+            children: [
+              const Spacer(),
+              Container(
+                width: 350,
+                height: 700,
+                decoration: BoxDecoration(
+                  color: context
+                      .flutterDeckTheme.materialTheme.colorScheme.onSurface,
+                ),
+                child: RTCVideoView(_localRenderer),
+              ),
+              CupertinoButton(
+                onPressed: () {
+                  selectScreenSourceDialog(context);
+                },
+                child: const Text('Open App Showcase'),
+              ),
+              const Spacer(),
+            ],
+          ),
+        ],
+      );
 }

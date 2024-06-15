@@ -4,9 +4,14 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_webrtc/flutter_webrtc.dart';
 
+// Shoutouts to these folks for this:
+// https://github.com/flutter-webrtc/flutter-webrtc/blob/99d8501e20bf2ab8eb3fbe733d5df4967274d00e/example/lib/src/get_display_media_sample.dart#L48
+
+// ignore: must_be_immutable
 class ScreenSelectDialog extends Dialog {
   ScreenSelectDialog({super.key}) {
     Future.delayed(const Duration(milliseconds: 100), _getSources);
+
     _subscriptions
       ..add(
         desktopCapturer.onAdded.stream.listen((source) {
@@ -26,6 +31,7 @@ class ScreenSelectDialog extends Dialog {
         }),
       );
   }
+
   final Map<String, DesktopCapturerSource> _sources = {};
   SourceType _sourceType = SourceType.Screen;
   DesktopCapturerSource? _selectedSource;
@@ -45,32 +51,29 @@ class ScreenSelectDialog extends Dialog {
   Future<void> _cancel(BuildContext context) async {
     _timer?.cancel();
     for (final element in _subscriptions) {
-      element.cancel();
+      await element.cancel();
     }
+    if (!context.mounted) return;
     Navigator.pop<DesktopCapturerSource>(context);
   }
 
   Future<void> _getSources() async {
-    try {
-      final sources = await desktopCapturer.getSources(types: [_sourceType]);
-      for (final element in sources) {
-        print(
-          'name: ${element.name}, id: ${element.id}, type: ${element.type}',
-        );
-      }
-      _timer?.cancel();
-      _timer = Timer.periodic(const Duration(seconds: 3), (timer) {
-        desktopCapturer.updateSources(types: [_sourceType]);
-      });
-      _sources.clear();
-      for (final element in sources) {
-        _sources[element.id] = element;
-      }
-      _stateSetter?.call(() {});
-      return;
-    } catch (e) {
-      print(e);
+    final sources = await desktopCapturer.getSources(types: [_sourceType]);
+    // for (final element in sources) {
+    //   print(
+    //     'name: ${element.name}, id: ${element.id}, type: ${element.type}',
+    //   );
+    // }
+    _timer?.cancel();
+    _timer = Timer.periodic(const Duration(seconds: 3), (timer) {
+      desktopCapturer.updateSources(types: [_sourceType]);
+    });
+    _sources.clear();
+    for (final element in sources) {
+      _sources[element.id] = element;
     }
+    _stateSetter?.call(() {});
+    return;
   }
 
   @override
@@ -147,67 +150,59 @@ class ScreenSelectDialog extends Dialog {
                               height: 2,
                             ),
                             Expanded(
-                              child: Container(
-                                child: TabBarView(
-                                  children: [
-                                    Align(
-                                      child: Container(
-                                        child: GridView.count(
-                                          crossAxisSpacing: 8,
-                                          crossAxisCount: 2,
-                                          children: _sources.entries
-                                              .where(
-                                                (element) =>
-                                                    element.value.type ==
-                                                    SourceType.Screen,
-                                              )
-                                              .map(
-                                                (e) => ThumbnailWidget(
-                                                  onTap: (source) {
-                                                    setState(() {
-                                                      _selectedSource = source;
-                                                    });
-                                                  },
-                                                  source: e.value,
-                                                  selected:
-                                                      _selectedSource?.id ==
-                                                          e.value.id,
-                                                ),
-                                              )
-                                              .toList(),
-                                        ),
-                                      ),
+                              child: TabBarView(
+                                children: [
+                                  Align(
+                                    child: GridView.count(
+                                      crossAxisSpacing: 8,
+                                      crossAxisCount: 2,
+                                      children: _sources.entries
+                                          .where(
+                                            (element) =>
+                                                element.value.type ==
+                                                SourceType.Screen,
+                                          )
+                                          .map(
+                                            (e) => ThumbnailWidget(
+                                              onTap: (source) {
+                                                setState(() {
+                                                  _selectedSource = source;
+                                                });
+                                              },
+                                              source: e.value,
+                                              selected: _selectedSource?.id ==
+                                                  e.value.id,
+                                            ),
+                                          )
+                                          .toList(),
                                     ),
-                                    Align(
-                                      child: Container(
-                                        child: GridView.count(
-                                          crossAxisSpacing: 8,
-                                          crossAxisCount: 3,
-                                          children: _sources.entries
-                                              .where(
-                                                (element) =>
-                                                    element.value.type ==
-                                                    SourceType.Window,
-                                              )
-                                              .map(
-                                                (e) => ThumbnailWidget(
-                                                  onTap: (source) {
-                                                    setState(() {
-                                                      _selectedSource = source;
-                                                    });
-                                                  },
-                                                  source: e.value,
-                                                  selected:
-                                                      _selectedSource?.id ==
-                                                          e.value.id,
-                                                ),
-                                              )
-                                              .toList(),
-                                        ),
-                                      ),
+                                  ),
+                                  Align(
+                                    child: GridView.count(
+                                      crossAxisSpacing: 8,
+                                      crossAxisCount: 3,
+                                      children: _sources.entries
+                                          .where(
+                                            (element) =>
+                                                element.value.type ==
+                                                SourceType.Window,
+                                          )
+                                          .map(
+                                            (e) => ThumbnailWidget(
+                                              onTap: (source) {
+                                                setState(() {
+                                                  _selectedSource = source;
+                                                });
+                                              },
+                                              source: e.value,
+                                              selected: _selectedSource?.id ==
+                                                  e.value.id,
+                                            ),
+                                          )
+                                          .toList(),
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
                           ],
@@ -259,31 +254,32 @@ class ThumbnailWidget extends StatefulWidget {
   });
   final DesktopCapturerSource source;
   final bool selected;
-  final Function(DesktopCapturerSource) onTap;
+  final void Function(DesktopCapturerSource) onTap;
 
   @override
-  _ThumbnailWidgetState createState() => _ThumbnailWidgetState();
+  State<ThumbnailWidget> createState() => _ThumbnailWidgetState();
 }
 
 class _ThumbnailWidgetState extends State<ThumbnailWidget> {
-  final List<StreamSubscription> _subscriptions = [];
+  final List<StreamSubscription<dynamic>> _subscriptions = [];
   Uint8List? _thumbnail;
 
   @override
   void initState() {
     super.initState();
-    _subscriptions.add(
-      widget.source.onThumbnailChanged.stream.listen((event) {
-        setState(() {
-          _thumbnail = event;
-        });
-      }),
-    );
-    _subscriptions.add(
-      widget.source.onNameChanged.stream.listen((event) {
-        setState(() {});
-      }),
-    );
+    _subscriptions
+      ..add(
+        widget.source.onThumbnailChanged.stream.listen((event) {
+          setState(() {
+            _thumbnail = event;
+          });
+        }),
+      )
+      ..add(
+        widget.source.onNameChanged.stream.listen((event) {
+          setState(() {});
+        }),
+      );
   }
 
   @override
@@ -307,7 +303,6 @@ class _ThumbnailWidgetState extends State<ThumbnailWidget> {
                 : null,
             child: InkWell(
               onTap: () {
-                print('Selected source id => ${widget.source.id}');
                 widget.onTap(widget.source);
               },
               child: _thumbnail != null
