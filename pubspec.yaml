@@ -34,6 +34,7 @@ flutter:
   assets:
     - assets/fonts/
     - assets/images/
+    - assets/images/what_happened_images/
     - assets/rive/
 
   fonts:

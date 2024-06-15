@@ -49,6 +49,12 @@ class $AssetsImagesGen {
   /// File path: assets/images/lucas.jpeg
   AssetGenImage get lucas => const AssetGenImage('assets/images/lucas.jpeg');
 
+  /// File path: assets/images/tsukuba.png
+  AssetGenImage get tsukuba => const AssetGenImage('assets/images/tsukuba.png');
+
+  $AssetsImagesWhatHappenedImagesGen get whatHappenedImages =>
+      const $AssetsImagesWhatHappenedImagesGen();
+
   /// File path: assets/images/youtrust.png
   AssetGenImage get youtrust =>
       const AssetGenImage('assets/images/youtrust.png');
@@ -64,6 +70,7 @@ class $AssetsImagesGen {
         flutterconTower,
         flutterconTowerBase,
         lucas,
+        tsukuba,
         youtrust,
         youtrustFullLogo
       ];
@@ -77,6 +84,29 @@ class $AssetsRiveGen {
 
   /// List of all assets
   List<String> get values => [folder];
+}
+
+class $AssetsImagesWhatHappenedImagesGen {
+  const $AssetsImagesWhatHappenedImagesGen();
+
+  /// File path: assets/images/what_happened_images/first.png
+  AssetGenImage get first =>
+      const AssetGenImage('assets/images/what_happened_images/first.png');
+
+  /// File path: assets/images/what_happened_images/fourth.png
+  AssetGenImage get fourth =>
+      const AssetGenImage('assets/images/what_happened_images/fourth.png');
+
+  /// File path: assets/images/what_happened_images/second.png
+  AssetGenImage get second =>
+      const AssetGenImage('assets/images/what_happened_images/second.png');
+
+  /// File path: assets/images/what_happened_images/third.png
+  AssetGenImage get third =>
+      const AssetGenImage('assets/images/what_happened_images/third.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [first, fourth, second, third];
 }
 
 class Assets {
