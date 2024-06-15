@@ -15,7 +15,7 @@ class SeatsSlide extends FlutterDeckSlideWidget {
       : super(
           configuration: const FlutterDeckSlideConfiguration(
             route: '/seats-slide',
-            title: 'Seats slide',
+            title: 'Seats Selector',
             footer: FlutterDeckFooterConfiguration(showFooter: false),
             steps: 2,
           ),

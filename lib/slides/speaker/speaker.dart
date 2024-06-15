@@ -11,11 +11,9 @@ class SpeakerSlide extends FlutterDeckSlideWidget {
   const SpeakerSlide()
       : super(
           configuration: const FlutterDeckSlideConfiguration(
-            route: '/big-fact',
+            route: '/speaker',
+            title: 'Speaker Info',
             steps: 5,
-            header: FlutterDeckHeaderConfiguration(
-              title: 'Big fact slide template',
-            ),
           ),
         );
 
