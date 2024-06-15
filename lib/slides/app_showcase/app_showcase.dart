@@ -1,13 +1,11 @@
 import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deck/flutter_deck.dart';
 import 'package:flutter_webrtc/flutter_webrtc.dart';
 import 'package:state_restoration_presentation/core/extensions/context_ext.dart';
 import 'package:state_restoration_presentation/core/widgets/margins.dart';
-import 'package:state_restoration_presentation/slides/app_showcase/widgets/screen_dialog.dart';
 
 class AppShowCaseSlide extends FlutterDeckSlideWidget {
   const AppShowCaseSlide()
@@ -16,6 +14,7 @@ class AppShowCaseSlide extends FlutterDeckSlideWidget {
             route: '/_AppShowCase-slide',
             title: 'App Showcase',
             footer: FlutterDeckFooterConfiguration(showFooter: false),
+            steps: 2,
           ),
         );
 
@@ -38,6 +37,7 @@ class _AppShowCaseState extends State<_AppShowCase> {
   MediaStream? _localStream;
   final RTCVideoRenderer _localRenderer = RTCVideoRenderer();
   DesktopCapturerSource? selectedSource;
+  final SourceType _sourceType = SourceType.Window;
 
   @override
   void initState() {
@@ -57,10 +57,8 @@ class _AppShowCaseState extends State<_AppShowCase> {
 
   Future<void> selectScreenSourceDialog(BuildContext context) async {
     if (WebRTC.platformIsDesktop) {
-      final source = await showDialog<DesktopCapturerSource>(
-        context: context,
-        builder: (context) => ScreenSelectDialog(),
-      );
+      final source = await _getBezelSoftwareSource();
+      if (source == null) return;
 
       setState(() {
         selectedSource = source;
@@ -77,7 +75,6 @@ class _AppShowCaseState extends State<_AppShowCase> {
                 },
         });
         stream.getVideoTracks()[0].onEnded = () {};
-
         _localStream = stream;
         _localRenderer.srcObject = _localStream;
       } catch (e) {
@@ -90,36 +87,64 @@ class _AppShowCaseState extends State<_AppShowCase> {
     }
   }
 
+  Future<DesktopCapturerSource?> _getBezelSoftwareSource() async {
+    final sources = await desktopCapturer.getSources(types: [_sourceType]);
+    const bezelSoftwareSourceId = '117474';
+    final source = sources.firstWhere(
+      (source) => source.id == bezelSoftwareSourceId,
+    );
+
+    return source;
+  }
+
   @override
-  Widget build(BuildContext context) => Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            'Japanana App\n Showcase',
-            style: context.textTheme.title,
-          ),
-          horizontalMargin48,
-          Column(
-            children: [
-              const Spacer(),
-              Container(
-                width: 350,
-                height: 700,
-                decoration: BoxDecoration(
-                  color: context
-                      .flutterDeckTheme.materialTheme.colorScheme.onSurface,
+  Widget build(BuildContext context) => FlutterDeckSlideStepsListener(
+        listener: (context, stepNumber) {
+          if (stepNumber == 2) {
+            selectScreenSourceDialog(context);
+          }
+        },
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Japanana App\n Showcase',
+              style: context.textTheme.title,
+            ),
+            horizontalMargin48,
+            horizontalMargin48,
+            Column(
+              children: [
+                const Spacer(),
+                Container(
+                  width: 340,
+                  height: 700,
+                  clipBehavior: Clip.antiAlias,
+                  decoration: BoxDecoration(
+                    color: context
+                        .flutterDeckTheme.materialTheme.colorScheme.surface,
+                    borderRadius: BorderRadius.circular(24),
+                  ),
+                  child: _localStream == null
+                      ? const Center(
+                          child: Text(
+                            'Booting up iPhone...',
+                            style: TextStyle(
+                              fontSize: 24,
+                              color: Colors.white,
+                            ),
+                          ),
+                        )
+                      : Center(
+                          child: RTCVideoView(
+                            _localRenderer,
+                          ),
+                        ),
                 ),
-                child: RTCVideoView(_localRenderer),
-              ),
-              CupertinoButton(
-                onPressed: () {
-                  selectScreenSourceDialog(context);
-                },
-                child: const Text('Open App Showcase'),
-              ),
-              const Spacer(),
-            ],
-          ),
-        ],
+                const Spacer(),
+              ],
+            ),
+          ],
+        ),
       );
 }
