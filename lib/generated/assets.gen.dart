@@ -30,6 +30,13 @@ class $AssetsFontsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/database.webp
+  AssetGenImage get database =>
+      const AssetGenImage('assets/images/database.webp');
+
+  /// File path: assets/images/file.webp
+  AssetGenImage get file => const AssetGenImage('assets/images/file.webp');
+
   /// File path: assets/images/fluttercon_logo.svg
   SvgGenImage get flutterconLogo =>
       const SvgGenImage('assets/images/fluttercon_logo.svg');
@@ -46,8 +53,20 @@ class $AssetsImagesGen {
   SvgGenImage get flutterconTowerBase =>
       const SvgGenImage('assets/images/fluttercon_tower_base.svg');
 
+  /// File path: assets/images/hidden_database.webp
+  AssetGenImage get hiddenDatabase =>
+      const AssetGenImage('assets/images/hidden_database.webp');
+
   /// File path: assets/images/lucas.jpeg
   AssetGenImage get lucas => const AssetGenImage('assets/images/lucas.jpeg');
+
+  /// File path: assets/images/package.webp
+  AssetGenImage get package =>
+      const AssetGenImage('assets/images/package.webp');
+
+  /// File path: assets/images/restoration_manager.webp
+  AssetGenImage get restorationManager =>
+      const AssetGenImage('assets/images/restoration_manager.webp');
 
   /// File path: assets/images/tsukuba.png
   AssetGenImage get tsukuba => const AssetGenImage('assets/images/tsukuba.png');
@@ -65,11 +84,16 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<dynamic> get values => [
+        database,
+        file,
         flutterconLogo,
         flutterconParticleCircle,
         flutterconTower,
         flutterconTowerBase,
+        hiddenDatabase,
         lucas,
+        package,
+        restorationManager,
         tsukuba,
         youtrust,
         youtrustFullLogo
