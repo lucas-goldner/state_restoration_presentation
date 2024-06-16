@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_deck/flutter_deck.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_shader_snap/flutter_shader_snap.dart';
+import 'package:state_restoration_presentation/core/extensions/context_ext.dart';
 import 'package:state_restoration_presentation/core/widgets.dart';
 import 'package:state_restoration_presentation/generated/assets.gen.dart';
 import 'package:state_restoration_presentation/slides/saving_state/model/possible_options.dart';
-import 'package:state_restoration_presentation/slides/saving_state/widgets/saving_option.dart';
 
 class SavingStateSlide extends FlutterDeckSlideWidget {
   const SavingStateSlide()
@@ -13,7 +13,7 @@ class SavingStateSlide extends FlutterDeckSlideWidget {
           configuration: const FlutterDeckSlideConfiguration(
             route: '/saving-state',
             title: 'Saving State!',
-            steps: 10,
+            steps: 9,
           ),
         );
 
@@ -76,10 +76,22 @@ class _SavingStateContent extends HookWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SavingOption(
+                    AppearAtStepWithFade(
                       step: 4,
                       currentStep: steps,
-                      option: PossibleOptions.database,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          PossibleOptions.database.asset.image(
+                            width: 100,
+                            height: 100,
+                          ),
+                          Text(
+                            PossibleOptions.database.getLocalizedName(context),
+                            style: context.textTheme.bodyMedium,
+                          ),
+                        ],
+                      ),
                     ),
                     Column(
                       children: [
@@ -98,22 +110,60 @@ class _SavingStateContent extends HookWidget {
                             ),
                           ),
                         ),
-                        SavingOption(
+                        AppearAtStepWithFade(
                           step: 5,
                           currentStep: steps,
-                          option: PossibleOptions.package,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              PossibleOptions.package.asset.image(
+                                width: 100,
+                                height: 100,
+                              ),
+                              Text(
+                                PossibleOptions.package
+                                    .getLocalizedName(context),
+                                style: context.textTheme.bodyMedium,
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),
-                    SavingOption(
+                    AppearAtStepWithFade(
                       step: 7,
                       currentStep: steps,
-                      option: PossibleOptions.file,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          PossibleOptions.file.asset.image(
+                            width: 100,
+                            height: 100,
+                          ),
+                          Text(
+                            PossibleOptions.file.getLocalizedName(context),
+                            style: context.textTheme.bodyMedium,
+                          ),
+                        ],
+                      ),
                     ),
-                    SavingOption(
+                    AppearAtStepWithFade(
                       step: 8,
                       currentStep: steps,
-                      option: PossibleOptions.restorationManager,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          PossibleOptions.restorationManager.asset.image(
+                            width: 100,
+                            height: 100,
+                          ),
+                          Text(
+                            PossibleOptions.restorationManager
+                                .getLocalizedName(context),
+                            style: context.textTheme.bodyMedium,
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),

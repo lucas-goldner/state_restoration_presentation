@@ -10,6 +10,7 @@ import 'package:state_restoration_presentation/slides/long_form/long_form.dart';
 import 'package:state_restoration_presentation/slides/saving_state/saving_state.dart';
 import 'package:state_restoration_presentation/slides/seats/seats.dart';
 import 'package:state_restoration_presentation/slides/speaker/speaker.dart';
+import 'package:state_restoration_presentation/slides/states_difference/different_states_slide.dart';
 import 'package:state_restoration_presentation/slides/title/title.dart';
 import 'package:state_restoration_presentation/slides/tsukuba/tsukuba.dart';
 import 'package:state_restoration_presentation/slides/what_happened/what_happened.dart';
@@ -78,6 +79,7 @@ class FlutterDeckExample extends StatelessWidget {
           TsukubaSlide(),
           LongFormSlide(),
           SavingStateSlide(),
+          DifferentStatesSlide(),
         ],
       );
 }

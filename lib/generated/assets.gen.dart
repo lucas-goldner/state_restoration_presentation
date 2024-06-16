@@ -30,6 +30,10 @@ class $AssetsFontsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/confusion.jpg
+  AssetGenImage get confusion =>
+      const AssetGenImage('assets/images/confusion.jpg');
+
   /// File path: assets/images/database.webp
   AssetGenImage get database =>
       const AssetGenImage('assets/images/database.webp');
@@ -68,6 +72,10 @@ class $AssetsImagesGen {
   AssetGenImage get restorationManager =>
       const AssetGenImage('assets/images/restoration_manager.webp');
 
+  /// File path: assets/images/state_graph.webp
+  AssetGenImage get stateGraph =>
+      const AssetGenImage('assets/images/state_graph.webp');
+
   /// File path: assets/images/tsukuba.png
   AssetGenImage get tsukuba => const AssetGenImage('assets/images/tsukuba.png');
 
@@ -84,6 +92,7 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<dynamic> get values => [
+        confusion,
         database,
         file,
         flutterconLogo,
@@ -94,6 +103,7 @@ class $AssetsImagesGen {
         lucas,
         package,
         restorationManager,
+        stateGraph,
         tsukuba,
         youtrust,
         youtrustFullLogo

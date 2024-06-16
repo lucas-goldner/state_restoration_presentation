@@ -41,6 +41,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.5.0"
+  arrow_path:
+    dependency: transitive
+    description:
+      name: arrow_path
+      sha256: "07194a2f165242543e81b7fb16d86d433b52ee31adb0dc9afe9273c0a45e2d9e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.0"
   async:
     dependency: transitive
     description:
@@ -325,6 +333,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "13.2.5"
+  graphite:
+    dependency: "direct main"
+    description:
+      name: graphite
+      sha256: "0887a93e53734e497f27e2ae0522e01037ed905c90a3568b51d1a6b26d52994c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.2"
   graphs:
     dependency: transitive
     description:
@@ -698,6 +714,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.4"
+  touchable:
+    dependency: transitive
+    description:
+      name: touchable
+      sha256: "50040b39778bb1adc8a480625de8681253bd2134785395cf16abd66bb13d3ed0"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.2"
   typed_data:
     dependency: transitive
     description:
