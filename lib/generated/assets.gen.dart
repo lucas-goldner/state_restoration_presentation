@@ -84,6 +84,10 @@ class $AssetsImagesGen {
   $AssetsImagesWhatHappenedImagesGen get whatHappenedImages =>
       const $AssetsImagesWhatHappenedImagesGen();
 
+  /// File path: assets/images/xcode_restoration.webp
+  AssetGenImage get xcodeRestoration =>
+      const AssetGenImage('assets/images/xcode_restoration.webp');
+
   /// File path: assets/images/youtrust.png
   AssetGenImage get youtrust =>
       const AssetGenImage('assets/images/youtrust.png');
@@ -107,6 +111,7 @@ class $AssetsImagesGen {
         restorationManager,
         stateGraph,
         tsukuba,
+        xcodeRestoration,
         youtrust,
         youtrustFullLogo
       ];

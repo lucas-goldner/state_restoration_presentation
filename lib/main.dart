@@ -7,6 +7,7 @@ import 'package:state_restoration_presentation/core/style/colors.dart';
 import 'package:state_restoration_presentation/core/style/theme.dart';
 import 'package:state_restoration_presentation/slides/app_showcase/app_showcase.dart';
 import 'package:state_restoration_presentation/slides/long_form/long_form.dart';
+import 'package:state_restoration_presentation/slides/preparation/preparation.dart';
 import 'package:state_restoration_presentation/slides/restoration_manager/restoration_manager.dart';
 import 'package:state_restoration_presentation/slides/saving_state/saving_state.dart';
 import 'package:state_restoration_presentation/slides/seats/seats.dart';
@@ -82,6 +83,7 @@ class FlutterDeckExample extends StatelessWidget {
           SavingStateSlide(),
           DifferentStatesSlide(),
           RestorationManagerSlide(),
+          PreparationSlide(),
         ],
       );
 }
