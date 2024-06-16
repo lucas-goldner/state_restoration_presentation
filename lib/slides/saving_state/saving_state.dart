@@ -76,7 +76,7 @@ class _SavingStateContent extends HookWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    AppearAtStepWithFade(
+                    AnimatedFadeAtStep(
                       step: 4,
                       currentStep: steps,
                       child: Column(
@@ -110,7 +110,7 @@ class _SavingStateContent extends HookWidget {
                             ),
                           ),
                         ),
-                        AppearAtStepWithFade(
+                        AnimatedFadeAtStep(
                           step: 5,
                           currentStep: steps,
                           child: Column(
@@ -130,7 +130,7 @@ class _SavingStateContent extends HookWidget {
                         ),
                       ],
                     ),
-                    AppearAtStepWithFade(
+                    AnimatedFadeAtStep(
                       step: 7,
                       currentStep: steps,
                       child: Column(
@@ -147,7 +147,7 @@ class _SavingStateContent extends HookWidget {
                         ],
                       ),
                     ),
-                    AppearAtStepWithFade(
+                    AnimatedFadeAtStep(
                       step: 8,
                       currentStep: steps,
                       child: Column(

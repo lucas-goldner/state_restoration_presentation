@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:state_restoration_presentation/core/widgets/fade_animation.dart';
 
-class AppearAtStepWithFade extends StatelessWidget {
-  const AppearAtStepWithFade({
+class AnimatedFadeAtStep extends StatelessWidget {
+  const AnimatedFadeAtStep({
     required this.step,
     required this.currentStep,
     required this.child,

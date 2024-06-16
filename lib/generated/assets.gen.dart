@@ -30,6 +30,8 @@ class $AssetsFontsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  $AssetsImagesBucketGen get bucket => const $AssetsImagesBucketGen();
+
   /// File path: assets/images/confusion.jpg
   AssetGenImage get confusion =>
       const AssetGenImage('assets/images/confusion.jpg');
@@ -118,6 +120,19 @@ class $AssetsRiveGen {
 
   /// List of all assets
   List<String> get values => [folder];
+}
+
+class $AssetsImagesBucketGen {
+  const $AssetsImagesBucketGen();
+
+  /// File path: assets/images/bucket/cup.svg
+  SvgGenImage get cup => const SvgGenImage('assets/images/bucket/cup.svg');
+
+  /// File path: assets/images/bucket/water.svg
+  SvgGenImage get water => const SvgGenImage('assets/images/bucket/water.svg');
+
+  /// List of all assets
+  List<SvgGenImage> get values => [cup, water];
 }
 
 class $AssetsImagesWhatHappenedImagesGen {

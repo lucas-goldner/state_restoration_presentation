@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_deck/flutter_deck.dart';
 import 'package:graphite/graphite.dart';
 import 'package:state_restoration_presentation/core/extensions/context_ext.dart';
-import 'package:state_restoration_presentation/core/widgets/appear_at_step_with_fade.dart';
+import 'package:state_restoration_presentation/core/widgets/animated_step_at_fade.dart';
 import 'package:state_restoration_presentation/core/widgets/margins.dart';
 import 'package:state_restoration_presentation/core/widgets/paddings.dart';
 import 'package:state_restoration_presentation/generated/assets.gen.dart';
@@ -51,7 +51,7 @@ class _DifferentStatesContent extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                AppearAtStepWithFade(
+                AnimatedFadeAtStep(
                   step: 3,
                   currentStep: step,
                   child: Column(
@@ -93,7 +93,7 @@ class _DifferentStatesContent extends StatelessWidget {
                 ),
                 horizontalMargin32,
                 horizontalMargin32,
-                AppearAtStepWithFade(
+                AnimatedFadeAtStep(
                   step: 4,
                   currentStep: step,
                   child: Column(
