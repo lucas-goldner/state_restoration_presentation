@@ -6,6 +6,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:state_restoration_presentation/core/style/colors.dart';
 import 'package:state_restoration_presentation/core/style/theme.dart';
 import 'package:state_restoration_presentation/slides/app_showcase/app_showcase.dart';
+import 'package:state_restoration_presentation/slides/dev_tips/dev_tips.dart';
 import 'package:state_restoration_presentation/slides/fixing_my_japanana/fixing_japanana.dart';
 import 'package:state_restoration_presentation/slides/long_form/long_form.dart';
 import 'package:state_restoration_presentation/slides/preparation/preparation.dart';
@@ -87,6 +88,7 @@ class FlutterDeckExample extends StatelessWidget {
           RestorationIds(),
           RestorationMixinSlide(),
           FixingJapananaSlide(),
+          DevTipsSlide(),
         ],
       );
 }

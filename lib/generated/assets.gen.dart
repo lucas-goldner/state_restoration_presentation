@@ -30,6 +30,10 @@ class $AssetsFontsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/android_dev_setting.png
+  AssetGenImage get androidDevSetting =>
+      const AssetGenImage('assets/images/android_dev_setting.png');
+
   $AssetsImagesBucketGen get bucket => const $AssetsImagesBucketGen();
 
   /// File path: assets/images/confusion.jpg
@@ -98,6 +102,7 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<dynamic> get values => [
+        androidDevSetting,
         confusion,
         database,
         file,
