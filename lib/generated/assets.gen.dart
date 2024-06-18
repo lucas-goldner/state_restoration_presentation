@@ -94,6 +94,8 @@ class $AssetsImagesGen {
 
   $AssetsImagesWhatHappenedImagesGen get whatHappenedImages =>
       const $AssetsImagesWhatHappenedImagesGen();
+  $AssetsImagesWhyItBotheredGen get whyItBothered =>
+      const $AssetsImagesWhyItBotheredGen();
 
   /// File path: assets/images/xcode_restoration.webp
   AssetGenImage get xcodeRestoration =>
@@ -175,6 +177,30 @@ class $AssetsImagesWhatHappenedImagesGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [first, fourth, second, third];
+}
+
+class $AssetsImagesWhyItBotheredGen {
+  const $AssetsImagesWhyItBotheredGen();
+
+  /// File path: assets/images/why_it_bothered/disappointed.png
+  AssetGenImage get disappointed =>
+      const AssetGenImage('assets/images/why_it_bothered/disappointed.png');
+
+  /// File path: assets/images/why_it_bothered/phone_enjoyer.webp
+  AssetGenImage get phoneEnjoyer =>
+      const AssetGenImage('assets/images/why_it_bothered/phone_enjoyer.webp');
+
+  /// File path: assets/images/why_it_bothered/smartphone.webp
+  AssetGenImage get smartphone =>
+      const AssetGenImage('assets/images/why_it_bothered/smartphone.webp');
+
+  /// File path: assets/images/why_it_bothered/walking_with_phone.webp
+  AssetGenImage get walkingWithPhone => const AssetGenImage(
+      'assets/images/why_it_bothered/walking_with_phone.webp');
+
+  /// List of all assets
+  List<AssetGenImage> get values =>
+      [disappointed, phoneEnjoyer, smartphone, walkingWithPhone];
 }
 
 class Assets {

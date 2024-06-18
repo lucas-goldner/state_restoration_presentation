@@ -38,6 +38,7 @@ flutter:
     - assets/fonts/
     - assets/images/
     - assets/images/what_happened_images/
+    - assets/images/why_it_bothered/
     - assets/images/bucket/
     - assets/rive/
 
