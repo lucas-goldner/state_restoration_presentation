@@ -87,9 +87,10 @@ class _FixedAppShowCaseState extends State<_FixedAppShowCase> {
 
   Future<DesktopCapturerSource?> _getBezelSoftwareSource() async {
     final sources = await desktopCapturer.getSources(types: [_sourceType]);
-    const bezelSoftwareSourceId = '167576';
+    const androidEmulatorSourceName =
+        'Android Emulator - Pixel_6a_API_TiramisuPrivacySandbox:5554';
     final source = sources.firstWhere(
-      (source) => source.id == bezelSoftwareSourceId,
+      (source) => source.name == androidEmulatorSourceName,
     );
 
     return source;
