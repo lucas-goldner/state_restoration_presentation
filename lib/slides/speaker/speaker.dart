@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_deck/flutter_deck.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:rive/rive.dart';
@@ -71,7 +72,7 @@ class _SlideFolderContent extends HookWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    verticalMargin32,
+                    verticalMargin16,
                     Text(
                       context.l10n.hiIam,
                       style: context.textTheme.bodyMedium.copyWith(
@@ -119,43 +120,98 @@ class _SlideFolderContent extends HookWidget {
             Padding(
               padding: const EdgeInsets.only(top: 160),
               child: Visibility(
-                visible: steps >= 2,
+                visible: steps >= 3,
                 child: Center(
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Visibility(
-                        visible: steps >= 4,
-                        child: FolderFile(
-                          text: context.l10n.fileOne,
-                          animationIndex: 6,
+                      Transform.translate(
+                        offset: Offset.zero,
+                        child: Animate(
+                          effects: [
+                            if (steps >= 2) ...[
+                              const ScaleEffect(
+                                begin: Offset(0, 0.01),
+                                end: Offset(1, 1),
+                                curve: Curves.easeInOutBack,
+                                duration: Duration(milliseconds: 500),
+                              ),
+                            ],
+                          ],
+                          child: FolderFile(
+                            text: context.l10n.fileOne,
+                            animationIndex: 6,
+                          ),
                         ),
                       ),
                       Visibility(
-                        visible: steps >= 3,
-                        child: FolderFile(
-                          text: '',
-                          animationIndex: 5,
-                          textReplacement: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Text(
-                                context.l10n.fileTwo,
-                                textAlign: TextAlign.center,
-                                style: context.textTheme.bodyMedium.copyWith(
-                                  color: Colors.black,
-                                  fontSize: 24,
+                        visible: steps >= 4,
+                        child: Transform.translate(
+                          offset: Offset.zero,
+                          child: Animate(
+                            effects: [
+                              if (steps >= 3) ...[
+                                const ScaleEffect(
+                                  begin: Offset(0, 0.01),
+                                  end: Offset(1, 1),
+                                  curve: Curves.easeInOutBack,
+                                  duration: Duration(milliseconds: 500),
                                 ),
-                              ),
+                                const MoveEffect(
+                                  begin: Offset(-100, -20),
+                                  end: Offset(1, 1),
+                                  curve: Curves.easeInOutBack,
+                                  duration: Duration(milliseconds: 1250),
+                                ),
+                              ],
                             ],
+                            child: FolderFile(
+                              text: '',
+                              animationIndex: 5,
+                              textReplacement: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text(
+                                    context.l10n.fileTwo,
+                                    textAlign: TextAlign.center,
+                                    style:
+                                        context.textTheme.bodyMedium.copyWith(
+                                      color: Colors.black,
+                                      fontSize: 24,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
                         ),
                       ),
                       Visibility(
                         visible: steps >= 5,
-                        child: FolderFile(
-                          text: context.l10n.fileThree,
-                          animationIndex: 4,
+                        child: Transform.translate(
+                          offset: Offset.zero,
+                          child: Animate(
+                            effects: [
+                              if (steps >= 4) ...[
+                                const ScaleEffect(
+                                  begin: Offset(0, 0.01),
+                                  end: Offset(1, 1),
+                                  curve: Curves.easeInOutBack,
+                                  duration: Duration(milliseconds: 500),
+                                ),
+                                const MoveEffect(
+                                  begin: Offset(-100, -20),
+                                  end: Offset(1, 1),
+                                  curve: Curves.easeInOutBack,
+                                  duration: Duration(milliseconds: 1250),
+                                ),
+                              ],
+                            ],
+                            child: FolderFile(
+                              text: context.l10n.fileThree,
+                              animationIndex: 4,
+                            ),
+                          ),
                         ),
                       ),
                     ],

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:state_restoration_presentation/core/extensions/context_ext.dart';
-import 'package:state_restoration_presentation/core/widgets/fade_animation.dart';
 import 'package:state_restoration_presentation/core/widgets/margins.dart';
 import 'package:state_restoration_presentation/generated/assets.gen.dart';
 
@@ -66,17 +65,14 @@ class FolderFile extends HookWidget {
       ),
     );
 
-    return FadeAnimation(
-      delay: 200,
-      child: Draggable(
-        childWhenDragging: Opacity(
-          opacity: .3,
-          child: child,
-        ),
-        onDragEnd: (details) => position.value = details.offset,
-        feedback: child,
+    return Draggable(
+      childWhenDragging: Opacity(
+        opacity: .3,
         child: child,
       ),
+      onDragEnd: (details) => position.value = details.offset,
+      feedback: child,
+      child: child,
     );
   }
 }

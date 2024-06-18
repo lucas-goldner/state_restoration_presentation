@@ -89,9 +89,9 @@ class _AppShowCaseState extends State<_AppShowCase> {
 
   Future<DesktopCapturerSource?> _getBezelSoftwareSource() async {
     final sources = await desktopCapturer.getSources(types: [_sourceType]);
-    const bezelSoftwareSourceId = '117474';
+    const softwareWindowName = 'Lucas’s iPhone';
     final source = sources.firstWhere(
-      (source) => source.id == bezelSoftwareSourceId,
+      (source) => source.name == softwareWindowName,
     );
 
     return source;
