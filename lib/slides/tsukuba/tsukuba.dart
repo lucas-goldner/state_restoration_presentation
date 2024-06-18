@@ -50,7 +50,7 @@ class _TsukubaContentState extends State<TsukubaContent> {
           top: 40,
           left: 40,
           child: Text(
-            'Why it bothered me...',
+            'Why it bothered me... 😒',
             style: context.textTheme.title.copyWith(
               color: Colors.white,
             ),

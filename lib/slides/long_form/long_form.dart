@@ -169,7 +169,7 @@ class LongFormSlide extends FlutterDeckSlideWidget {
       },
       rightBuilder: (context) {
         return Text(
-          'Imagine the user having to reDo this',
+          'Imagine the user having to reDo this 🙄',
           style: context.textTheme.title.copyWith(color: Colors.white),
         );
       },

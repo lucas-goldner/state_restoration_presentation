@@ -49,7 +49,7 @@ class _SavingStateContent extends HookWidget {
           controller: controller,
           child: Center(
             child: Text(
-              'Our App State',
+              steps == 1 ? 'Our App State 😃' : 'Our App State 😨',
               style: context.flutterDeckTheme.textTheme.title.copyWith(
                 color: Colors.black,
               ),

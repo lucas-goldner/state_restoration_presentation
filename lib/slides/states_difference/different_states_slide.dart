@@ -58,7 +58,7 @@ class _DifferentStatesContent extends StatelessWidget {
                     children: [
                       const Spacer(),
                       Text(
-                        'Instance State',
+                        'Instance State 🧊',
                         style: context.textTheme.title.copyWith(
                           fontSize: 44,
                         ),
@@ -101,7 +101,7 @@ class _DifferentStatesContent extends StatelessWidget {
                     children: [
                       const Spacer(),
                       Text(
-                        'App State',
+                        'App State ♾️',
                         style: context.textTheme.title.copyWith(
                           fontSize: 44,
                         ),
