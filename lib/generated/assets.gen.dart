@@ -47,6 +47,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/file.webp
   AssetGenImage get file => const AssetGenImage('assets/images/file.webp');
 
+  /// File path: assets/images/flutter_deck_logo.webp
+  AssetGenImage get flutterDeckLogo =>
+      const AssetGenImage('assets/images/flutter_deck_logo.webp');
+
   /// File path: assets/images/fluttercon_logo.svg
   SvgGenImage get flutterconLogo =>
       const SvgGenImage('assets/images/fluttercon_logo.svg');
@@ -73,6 +77,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/package.webp
   AssetGenImage get package =>
       const AssetGenImage('assets/images/package.webp');
+
+  /// File path: assets/images/qr.jpeg
+  AssetGenImage get qr => const AssetGenImage('assets/images/qr.jpeg');
 
   /// File path: assets/images/restoration_manager.webp
   AssetGenImage get restorationManager =>
@@ -106,6 +113,7 @@ class $AssetsImagesGen {
         confusion,
         database,
         file,
+        flutterDeckLogo,
         flutterconLogo,
         flutterconParticleCircle,
         flutterconTower,
@@ -113,6 +121,7 @@ class $AssetsImagesGen {
         hiddenDatabase,
         lucas,
         package,
+        qr,
         restorationManager,
         stateGraph,
         tsukuba,
