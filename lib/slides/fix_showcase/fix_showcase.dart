@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deck/flutter_deck.dart';
@@ -7,12 +5,12 @@ import 'package:flutter_webrtc/flutter_webrtc.dart';
 import 'package:state_restoration_presentation/core/extensions/context_ext.dart';
 import 'package:state_restoration_presentation/core/widgets/margins.dart';
 
-class AppShowCaseSlide extends FlutterDeckSlideWidget {
-  const AppShowCaseSlide()
+class FixedAppShowCaseSlide extends FlutterDeckSlideWidget {
+  const FixedAppShowCaseSlide()
       : super(
           configuration: const FlutterDeckSlideConfiguration(
-            route: '/appshowcase-slide',
-            title: 'App Showcase',
+            route: '/fix-slide',
+            title: 'Fixed App Showcase',
             footer: FlutterDeckFooterConfiguration(showFooter: false),
             steps: 2,
           ),
@@ -22,18 +20,18 @@ class AppShowCaseSlide extends FlutterDeckSlideWidget {
 
   @override
   FlutterDeckSlide build(BuildContext context) => FlutterDeckSlide.custom(
-        builder: (context) => const _AppShowCase(),
+        builder: (context) => const _FixedAppShowCase(),
       );
 }
 
-class _AppShowCase extends StatefulWidget {
-  const _AppShowCase();
+class _FixedAppShowCase extends StatefulWidget {
+  const _FixedAppShowCase();
 
   @override
-  State<_AppShowCase> createState() => _AppShowCaseState();
+  State<_FixedAppShowCase> createState() => _FixedAppShowCaseState();
 }
 
-class _AppShowCaseState extends State<_AppShowCase> {
+class _FixedAppShowCaseState extends State<_FixedAppShowCase> {
   MediaStream? _localStream;
   final RTCVideoRenderer _localRenderer = RTCVideoRenderer();
   DesktopCapturerSource? selectedSource;
@@ -89,7 +87,7 @@ class _AppShowCaseState extends State<_AppShowCase> {
 
   Future<DesktopCapturerSource?> _getBezelSoftwareSource() async {
     final sources = await desktopCapturer.getSources(types: [_sourceType]);
-    const bezelSoftwareSourceId = '117474';
+    const bezelSoftwareSourceId = '167576';
     final source = sources.firstWhere(
       (source) => source.id == bezelSoftwareSourceId,
     );
@@ -108,7 +106,7 @@ class _AppShowCaseState extends State<_AppShowCase> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Japanana App\n Showcase',
+              'Fixed Japanana\n App Showcase',
               style: context.textTheme.title,
             ),
             horizontalMargin48,

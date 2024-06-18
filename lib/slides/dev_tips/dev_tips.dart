@@ -9,7 +9,7 @@ class DevTipsSlide extends FlutterDeckSlideWidget {
   const DevTipsSlide()
       : super(
           configuration: const FlutterDeckSlideConfiguration(
-            steps: 8,
+            steps: 5,
             route: '/dev-tips-slide',
             header: FlutterDeckHeaderConfiguration(
               title: 'Development Tips',

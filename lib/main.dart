@@ -7,18 +7,19 @@ import 'package:state_restoration_presentation/core/style/colors.dart';
 import 'package:state_restoration_presentation/core/style/theme.dart';
 import 'package:state_restoration_presentation/slides/app_showcase/app_showcase.dart';
 import 'package:state_restoration_presentation/slides/dev_tips/dev_tips.dart';
+import 'package:state_restoration_presentation/slides/fix_showcase/fix_showcase.dart';
 import 'package:state_restoration_presentation/slides/fixing_my_japanana/fixing_japanana.dart';
 import 'package:state_restoration_presentation/slides/long_form/long_form.dart';
 import 'package:state_restoration_presentation/slides/preparation/preparation.dart';
 import 'package:state_restoration_presentation/slides/restoration_ids/restorationids.dart';
 import 'package:state_restoration_presentation/slides/restoration_manager/restoration_manager.dart';
+import 'package:state_restoration_presentation/slides/restorationmixin/restorablemixin.dart';
 import 'package:state_restoration_presentation/slides/saving_state/saving_state.dart';
 import 'package:state_restoration_presentation/slides/seats/seats.dart';
 import 'package:state_restoration_presentation/slides/speaker/speaker.dart';
 import 'package:state_restoration_presentation/slides/states_difference/different_states_slide.dart';
 import 'package:state_restoration_presentation/slides/title/title.dart';
 import 'package:state_restoration_presentation/slides/tsukuba/tsukuba.dart';
-import 'package:state_restoration_presentation/slides/restorationmixin/restorablemixin.dart';
 import 'package:state_restoration_presentation/slides/what_happened/what_happened.dart';
 
 void main() => runApp(const FlutterDeckExample());
@@ -89,6 +90,7 @@ class FlutterDeckExample extends StatelessWidget {
           RestorationMixinSlide(),
           FixingJapananaSlide(),
           DevTipsSlide(),
+          FixedAppShowCaseSlide(),
         ],
       );
 }
