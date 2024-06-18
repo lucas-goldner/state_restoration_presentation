@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_deck/flutter_deck.dart';
 import 'package:state_restoration_presentation/core/extensions/context_ext.dart';
 import 'package:state_restoration_presentation/core/widgets.dart';
+import 'package:state_restoration_presentation/slides/long_form/widget/photo_dialog.dart';
 
 class LongFormSlide extends FlutterDeckSlideWidget {
   const LongFormSlide()
@@ -133,7 +134,12 @@ class LongFormSlide extends FlutterDeckSlideWidget {
                 verticalMargin32,
                 Center(
                   child: GestureDetector(
-                    onTap: () => formKey.currentState?.reset(),
+                    onTap: () async {
+                      await showDialog<void>(
+                        context: context,
+                        builder: (context) => PhotoDialog(formKey: formKey),
+                      );
+                    },
                     child: Container(
                       width: 200,
                       height: 200,
