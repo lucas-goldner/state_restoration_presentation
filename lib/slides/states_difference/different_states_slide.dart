@@ -58,24 +58,24 @@ class _DifferentStatesContent extends StatelessWidget {
                     children: [
                       const Spacer(),
                       Text(
-                        'Instance State 🧊',
+                        context.l10n.instanceStateTitle,
                         style: context.textTheme.title.copyWith(
                           fontSize: 44,
                         ),
                       ),
                       const SizedBox(height: 20),
                       Text(
-                        'Scrollview position',
+                        context.l10n.scrollViewPosition,
                         style: context.textTheme.bodyLarge,
                       ),
                       const SizedBox(height: 20),
                       Text(
-                        'Navigationstack',
+                        context.l10n.navigationStack,
                         style: context.textTheme.bodyLarge,
                       ),
                       const SizedBox(height: 20),
                       Text(
-                        'Selected tab',
+                        context.l10n.selectedTab,
                         style: context.textTheme.bodyLarge,
                       ),
                       const Spacer(),
@@ -101,19 +101,19 @@ class _DifferentStatesContent extends StatelessWidget {
                     children: [
                       const Spacer(),
                       Text(
-                        'App State ♾️',
+                        context.l10n.appStateTitle,
                         style: context.textTheme.title.copyWith(
                           fontSize: 44,
                         ),
                       ),
                       const SizedBox(height: 20),
                       Text(
-                        'Amount of money\nin banking app',
+                        context.l10n.amountOfMoney,
                         style: context.textTheme.bodyLarge,
                       ),
                       const SizedBox(height: 20),
                       Text(
-                        'Flashcards\nin vocabulary learningapp',
+                        context.l10n.flashcards,
                         style: context.textTheme.bodyLarge,
                       ),
                       const Spacer(),
@@ -123,6 +123,6 @@ class _DifferentStatesContent extends StatelessWidget {
               ],
             ),
           ),
-        _ => const Text('Different States'),
+        _ => Text(context.l10n.differentStates),
       };
 }

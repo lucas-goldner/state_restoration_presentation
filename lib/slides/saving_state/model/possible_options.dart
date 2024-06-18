@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:state_restoration_presentation/core/extensions/context_ext.dart';
 import 'package:state_restoration_presentation/generated/assets.gen.dart';
 
 enum PossibleOptions {
@@ -12,13 +13,13 @@ extension PossibleOptionsExtension on PossibleOptions {
   String getLocalizedName(BuildContext context) {
     switch (this) {
       case PossibleOptions.database:
-        return 'Database';
+        return context.l10n.databaseOption;
       case PossibleOptions.package:
-        return 'Package\n(Hydrated Bloc)';
+        return context.l10n.packageOption;
       case PossibleOptions.file:
-        return 'JSON\nFile';
+        return context.l10n.fileOption;
       case PossibleOptions.restorationManager:
-        return 'Restoration\nManager';
+        return context.l10n.restorationManagerOption;
     }
   }
 

@@ -91,7 +91,7 @@ class _RestorableCounterState extends State<RestorableCounter>
                       step: 2,
                       currentStep: step,
                       child: Text(
-                        '1. Add the RestorationMixin to the State class',
+                        context.l10n.addRestorationMixin,
                         style: context.textTheme.bodyLarge,
                       ),
                     ),
@@ -100,7 +100,7 @@ class _RestorableCounterState extends State<RestorableCounter>
                       step: 3,
                       currentStep: step,
                       child: Text(
-                        '2. Override the restorationId with a unique one',
+                        context.l10n.overrideRestorationId,
                         style: context.textTheme.bodyLarge,
                       ),
                     ),
@@ -109,7 +109,7 @@ class _RestorableCounterState extends State<RestorableCounter>
                       step: 4,
                       currentStep: step,
                       child: Text(
-                        '3. Register for restoration using ids',
+                        context.l10n.registerRestoration,
                         style: context.textTheme.bodyLarge,
                       ),
                     ),
@@ -119,7 +119,7 @@ class _RestorableCounterState extends State<RestorableCounter>
                       step: 5,
                       currentStep: step,
                       child: Text(
-                        '4. All calls of _counter need the value property now',
+                        context.l10n.callsCounterValueProperty,
                         style: context.textTheme.bodyLarge,
                       ),
                     ),
@@ -129,7 +129,7 @@ class _RestorableCounterState extends State<RestorableCounter>
                       step: 6,
                       currentStep: step,
                       child: Text(
-                        '5. ❌ Dont forget to dispose ',
+                        context.l10n.disposeReminder,
                         style: context.textTheme.bodyLarge,
                       ),
                     ),

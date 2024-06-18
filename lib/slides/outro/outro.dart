@@ -30,7 +30,7 @@ class OutroSlide extends FlutterDeckSlideWidget {
                 Column(
                   children: [
                     Text(
-                      'Thanks!',
+                      context.l10n.thanks,
                       style: context.textTheme.title,
                     ),
                     Padding(
@@ -45,7 +45,7 @@ class OutroSlide extends FlutterDeckSlideWidget {
             ),
             verticalMargin32,
             Text(
-              "Let's connect on X @LucasGoldner!",
+              context.l10n.letsConntect,
               style: context.textTheme.bodyMedium,
               textAlign: TextAlign.center,
             ),
@@ -54,7 +54,7 @@ class OutroSlide extends FlutterDeckSlideWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Made with',
+                  context.l10n.madeWith,
                   style: context.textTheme.bodyMedium,
                   textAlign: TextAlign.center,
                 ),

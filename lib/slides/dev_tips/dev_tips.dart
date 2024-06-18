@@ -28,7 +28,7 @@ class DevTipsSlide extends FlutterDeckSlideWidget {
               step: 1,
               currentStep: step,
               child: Text(
-                '- Develop on Android 🤖',
+                context.l10n.devTip1,
                 style: context.textTheme.bodyMedium,
               ),
             ),
@@ -36,7 +36,7 @@ class DevTipsSlide extends FlutterDeckSlideWidget {
               step: 2,
               currentStep: step,
               child: Text(
-                '- PLEASE 🙏 turn that setting on ➡',
+                context.l10n.devTip2,
                 style: context.textTheme.bodyMedium,
               ),
             ),
@@ -44,7 +44,7 @@ class DevTipsSlide extends FlutterDeckSlideWidget {
               step: 3,
               currentStep: step,
               child: Text(
-                '- Rerun your app when you do changes 🔄',
+                context.l10n.devTip3,
                 style: context.textTheme.bodyMedium,
               ),
             ),
@@ -52,7 +52,7 @@ class DevTipsSlide extends FlutterDeckSlideWidget {
               step: 3,
               currentStep: step,
               child: Text(
-                '=> Changes are not persisted on device😔',
+                context.l10n.devTip3Reason,
                 style: context.textTheme.bodyMedium,
               ),
             ),
@@ -60,7 +60,7 @@ class DevTipsSlide extends FlutterDeckSlideWidget {
               step: 4,
               currentStep: step,
               child: Text(
-                '- Only test iOS if you must!',
+                context.l10n.devTip4,
                 style: context.textTheme.bodyMedium,
               ),
             ),
@@ -68,7 +68,7 @@ class DevTipsSlide extends FlutterDeckSlideWidget {
               step: 5,
               currentStep: step,
               child: Text(
-                '- For tests use: tester.restartAndRestore()',
+                context.l10n.devTip5,
                 style: context.textTheme.bodyMedium,
               ),
             ),

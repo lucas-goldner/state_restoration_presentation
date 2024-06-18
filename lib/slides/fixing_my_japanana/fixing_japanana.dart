@@ -555,7 +555,7 @@ class _InReviewContentState extends ConsumerState<_InReviewContent> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Problems:',
+                      context.l10n.problems,
                       style: context.textTheme.bodyLarge.copyWith(
                         fontSize: 40,
                         fontWeight: FontWeight.bold,
@@ -566,7 +566,9 @@ class _InReviewContentState extends ConsumerState<_InReviewContent> {
                       step: 1,
                       currentStep: step,
                       child: Text(
-                        step >= 7 ? '1. GoRouter ✅' : '1. GoRouter',
+                        step >= 7
+                            ? '${context.l10n.goRouterProblem} ✅'
+                            : context.l10n.goRouterProblem,
                         style: context.textTheme.bodyLarge,
                       ),
                     ),
@@ -576,8 +578,8 @@ class _InReviewContentState extends ConsumerState<_InReviewContent> {
                       currentStep: step,
                       child: Text(
                         step >= 9
-                            ? '2. Wrapped it with Stateful ✅'
-                            : '2. StatefulHookConsumerWidget =/= StatefulWidget',
+                            ? context.l10n.statehookconsumerwidgetSolution
+                            : context.l10n.statehookconsumerwidgetProblem,
                         style: context.textTheme.bodyLarge,
                       ),
                     ),
@@ -587,8 +589,8 @@ class _InReviewContentState extends ConsumerState<_InReviewContent> {
                       currentStep: step,
                       child: Text(
                         step >= 11
-                            ? '3. Written manually to bucket ✅'
-                            : '3. Hooks',
+                            ? context.l10n.hooksSolution
+                            : context.l10n.hooksProblem,
                         style: context.textTheme.bodyLarge,
                       ),
                     ),

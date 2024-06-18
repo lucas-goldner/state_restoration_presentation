@@ -6,11 +6,10 @@ import 'package:state_restoration_presentation/core/widgets.dart';
 import 'package:state_restoration_presentation/generated/assets.gen.dart';
 
 class Bucket extends HookWidget {
-  const Bucket(this.context, this.step, {String? text, super.key})
-      : _text = text ?? 'Application Information';
+  const Bucket(this.context, this.step, {required this.text, super.key});
   final BuildContext context;
   final int step;
-  final String _text;
+  final String text;
 
   void listenToStepChanges(
     ValueNotifier<bool> showWater,
@@ -86,7 +85,7 @@ class Bucket extends HookWidget {
                     ],
                   ],
                   child: Text(
-                    _text,
+                    text,
                     style: context.textTheme.bodyLarge,
                     textAlign: TextAlign.center,
                   ),
@@ -100,12 +99,12 @@ class Bucket extends HookWidget {
           children: [
             Assets.images.bucket.cup.svg(height: 160),
             verticalMargin16,
-            if (_text == 'Application Information')
+            if (text == context.l10n.applicationInformation)
               AnimatedFadeAtStep(
                 step: 3,
                 currentStep: step,
                 child: Text(
-                  'Rootbucket',
+                  context.l10n.rootBucket,
                   style: context.textTheme.bodyLarge,
                 ),
               ),

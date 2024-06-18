@@ -49,7 +49,9 @@ class _SavingStateContent extends HookWidget {
           controller: controller,
           child: Center(
             child: Text(
-              steps == 1 ? 'Our App State 😃' : 'Our App State 😨',
+              steps == 1
+                  ? context.l10n.appStateHappy
+                  : context.l10n.appStateSad,
               style: context.flutterDeckTheme.textTheme.title.copyWith(
                 color: Colors.black,
               ),
@@ -65,7 +67,7 @@ class _SavingStateContent extends HookWidget {
               children: [
                 Center(
                   child: Text(
-                    'How to save it 🥺?',
+                    context.l10n.howToSaveIt,
                     style: context.flutterDeckTheme.textTheme.title,
                   ),
                 ),
@@ -173,17 +175,17 @@ class _SavingStateContent extends HookWidget {
                   child: Row(
                     children: [
                       Text(
-                        'Long lived states\nApp State',
+                        context.l10n.longLivedStates,
                         style: context.flutterDeckTheme.textTheme.bodyMedium,
                       ),
                       const Spacer(),
                       Text(
-                        'VS',
+                        context.l10n.vsText,
                         style: context.flutterDeckTheme.textTheme.bodyMedium,
                       ),
                       const Spacer(),
                       Text(
-                        'Instance States\nEmphermal',
+                        context.l10n.instanceStates,
                         style: context.flutterDeckTheme.textTheme.bodyMedium,
                       ),
                     ],

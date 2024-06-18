@@ -45,7 +45,7 @@ class _PreparationsContent extends HookWidget {
                   step: 1,
                   currentStep: step,
                   child: Text(
-                    '🪪 restorationId / restorationScopeId',
+                    context.l10n.restorationIdRestorationScopeId,
                     style: context.textTheme.title.copyWith(
                       fontSize: 40,
                     ),
@@ -61,13 +61,13 @@ class _PreparationsContent extends HookWidget {
                       child: Column(
                         children: [
                           Text(
-                            'Widget ⚙️ => restorationId',
+                            context.l10n.widgetWithRestorationId,
                             style: context.textTheme.bodyLarge,
                           ),
                           Bucket(
                             context,
                             step - 3,
-                            text: 'Data into surrounding\nchild bucket',
+                            text: context.l10n.dataIntoSurroundingChildBucket,
                           ),
                         ],
                       ),
@@ -81,7 +81,7 @@ class _PreparationsContent extends HookWidget {
                           Column(
                             children: [
                               Text(
-                                'Widget ⚙️ => restorationScopeId',
+                                context.l10n.widgetWithRestorationScopeId,
                                 style: context.textTheme.bodyLarge,
                               ),
                               verticalMargin48,
@@ -90,7 +90,7 @@ class _PreparationsContent extends HookWidget {
                               Row(
                                 children: [
                                   Text(
-                                    'new',
+                                    context.l10n.wordNew,
                                     style: context.textTheme.bodyLarge,
                                   ),
                                   Assets.images.bucket.cup.svg(height: 160),

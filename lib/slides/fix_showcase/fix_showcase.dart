@@ -107,7 +107,7 @@ class _FixedAppShowCaseState extends State<_FixedAppShowCase> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Fixed Japanana\n App Showcase',
+              context.l10n.fixedAppShowcase,
               style: context.textTheme.title,
             ),
             horizontalMargin48,
@@ -125,10 +125,10 @@ class _FixedAppShowCaseState extends State<_FixedAppShowCase> {
                     borderRadius: BorderRadius.circular(24),
                   ),
                   child: _localStream == null
-                      ? const Center(
+                      ? Center(
                           child: Text(
-                            'Booting up iPhone...',
-                            style: TextStyle(
+                            context.l10n.bootingiPhone,
+                            style: const TextStyle(
                               fontSize: 24,
                               color: Colors.white,
                             ),

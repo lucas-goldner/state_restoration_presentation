@@ -82,7 +82,7 @@ class _Seats extends HookWidget {
       children: [
         verticalMargin12,
         Text(
-          'One of you is going...',
+          context.l10n.oneOfYouIsGoing,
           style: context.textTheme.title,
         ),
         verticalMargin48,

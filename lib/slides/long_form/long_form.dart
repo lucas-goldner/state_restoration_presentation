@@ -26,28 +26,28 @@ class LongFormSlide extends FlutterDeckSlideWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 TextFormField(
-                  decoration: const InputDecoration(
-                    hintText: 'Email',
+                  decoration: InputDecoration(
+                    hintText: context.l10n.emailHintText,
                   ),
                 ),
                 TextFormField(
-                  decoration: const InputDecoration(
-                    hintText: 'Name',
+                  decoration: InputDecoration(
+                    hintText: context.l10n.nameHintText,
                   ),
                 ),
                 TextFormField(
-                  decoration: const InputDecoration(
-                    hintText: 'Password',
+                  decoration: InputDecoration(
+                    hintText: context.l10n.passwordHintText,
                   ),
                 ),
                 TextFormField(
-                  decoration: const InputDecoration(
-                    hintText: 'Reenter Password',
+                  decoration: InputDecoration(
+                    hintText: context.l10n.reenterPasswordHintText,
                   ),
                 ),
                 TextFormField(
-                  decoration: const InputDecoration(
-                    hintText: 'Birthplace',
+                  decoration: InputDecoration(
+                    hintText: context.l10n.birthplaceHintText,
                   ),
                 ),
                 DatePickerDialog(
@@ -55,80 +55,80 @@ class LongFormSlide extends FlutterDeckSlideWidget {
                   lastDate: DateTime.now(),
                 ),
                 TextFormField(
-                  decoration: const InputDecoration(
-                    hintText: 'Birthday as text again',
+                  decoration: InputDecoration(
+                    hintText: context.l10n.birthdayHintText,
                   ),
                 ),
                 TextFormField(
-                  decoration: const InputDecoration(
-                    hintText: 'Favorite widget',
+                  decoration: InputDecoration(
+                    hintText: context.l10n.favoriteWidgetHintText,
                   ),
                 ),
                 verticalMargin48,
-                const Text('State Management Preference'),
+                Text(context.l10n.stateManagementPreferenceLabel),
                 verticalMargin12,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Column(
                       children: [
-                        const Text('Riverpod'),
+                        Text(context.l10n.riverpodOption),
                         Checkbox(value: false, onChanged: (_) {}),
                       ],
                     ),
                     Column(
                       children: [
-                        const Text('Bloc'),
+                        Text(context.l10n.blocOption),
                         Checkbox(value: false, onChanged: (_) {}),
                       ],
                     ),
                     Column(
                       children: [
-                        const Text('GetIt'),
+                        Text(context.l10n.getItOption),
                         Checkbox(value: false, onChanged: (_) {}),
                       ],
                     ),
                     Column(
                       children: [
-                        const Text('Vanilla'),
+                        Text(context.l10n.vanillaOption),
                         Checkbox(value: false, onChanged: (_) {}),
                       ],
                     ),
                     Column(
                       children: [
-                        const Text('The Best'),
+                        Text(context.l10n.theBestOption),
                         Checkbox(value: true, onChanged: (_) {}),
                       ],
                     ),
                   ],
                 ),
                 verticalMargin12,
-                const Text('Rate how much you liked this form'),
+                Text(context.l10n.formRatingLabel),
                 verticalMargin12,
                 Slider(value: 0, onChanged: (_) {}),
                 TextFormField(
-                  decoration: const InputDecoration(
-                    hintText: 'Reenter Email',
+                  decoration: InputDecoration(
+                    hintText: context.l10n.reenterEmailHintText,
                   ),
                 ),
                 TextFormField(
-                  decoration: const InputDecoration(
-                    hintText: 'Reenter Name',
+                  decoration: InputDecoration(
+                    hintText: context.l10n.reenterNameHintText,
                   ),
                 ),
                 TextFormField(
-                  decoration: const InputDecoration(
-                    hintText: 'Reenter Password',
+                  decoration: InputDecoration(
+                    hintText: context.l10n.reenterPasswordHintText,
                   ),
                 ),
                 TextFormField(
-                  decoration: const InputDecoration(
-                    hintText: 'Reenter Reenter Password',
+                  decoration: InputDecoration(
+                    hintText: context.l10n.reenterReenterPasswordHintText,
                   ),
                 ),
                 TextFormField(
-                  decoration: const InputDecoration(
-                    hintText: 'Reenter Birthplace',
+                  decoration: InputDecoration(
+                    hintText: context.l10n.reenterBirthplaceHintText,
                   ),
                 ),
                 verticalMargin32,
@@ -144,8 +144,8 @@ class LongFormSlide extends FlutterDeckSlideWidget {
                       width: 200,
                       height: 200,
                       color: Colors.grey,
-                      child: const Center(
-                        child: Text('Choose profile picture'),
+                      child: Center(
+                        child: Text(context.l10n.chooseProfilePictureLabel),
                       ),
                     ),
                   ),
@@ -157,7 +157,7 @@ class LongFormSlide extends FlutterDeckSlideWidget {
                       padding: const EdgeInsets.symmetric(vertical: 16),
                       child: ElevatedButton(
                         onPressed: () {},
-                        child: const Text('Submit'),
+                        child: Text(context.l10n.submitButtonText),
                       ),
                     ),
                   ],
@@ -169,7 +169,7 @@ class LongFormSlide extends FlutterDeckSlideWidget {
       },
       rightBuilder: (context) {
         return Text(
-          'Imagine the user having to reDo this 🙄',
+          context.l10n.redoUserHintText,
           style: context.textTheme.title.copyWith(color: Colors.white),
         );
       },

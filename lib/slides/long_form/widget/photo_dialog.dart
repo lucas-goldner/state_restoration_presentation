@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:state_restoration_presentation/core/extensions/context_ext.dart';
 import 'package:state_restoration_presentation/core/widgets/margins.dart';
 import 'package:state_restoration_presentation/core/widgets/paddings.dart';
 
@@ -26,8 +27,8 @@ class PhotoDialog extends StatelessWidget {
                       color: Colors.grey,
                       width: 200,
                       height: 200,
-                      child: const Center(
-                        child: Text('Photo'),
+                      child: Center(
+                        child: Text(context.l10n.photo),
                       ),
                     ),
                     horizontalMargin12,
@@ -35,8 +36,8 @@ class PhotoDialog extends StatelessWidget {
                       color: Colors.grey,
                       width: 200,
                       height: 200,
-                      child: const Center(
-                        child: Text('Photo'),
+                      child: Center(
+                        child: Text(context.l10n.photo),
                       ),
                     ),
                     horizontalMargin12,
@@ -44,8 +45,8 @@ class PhotoDialog extends StatelessWidget {
                       color: Colors.grey,
                       width: 200,
                       height: 200,
-                      child: const Center(
-                        child: Text('Photo'),
+                      child: Center(
+                        child: Text(context.l10n.photo),
                       ),
                     ),
                   ],
@@ -58,8 +59,8 @@ class PhotoDialog extends StatelessWidget {
                       color: Colors.grey,
                       width: 200,
                       height: 200,
-                      child: const Center(
-                        child: Text('Photo'),
+                      child: Center(
+                        child: Text(context.l10n.photo),
                       ),
                     ),
                     horizontalMargin12,
@@ -67,8 +68,8 @@ class PhotoDialog extends StatelessWidget {
                       color: Colors.grey,
                       width: 200,
                       height: 200,
-                      child: const Center(
-                        child: Text('Photo'),
+                      child: Center(
+                        child: Text(context.l10n.photo),
                       ),
                     ),
                     horizontalMargin12,
@@ -76,8 +77,8 @@ class PhotoDialog extends StatelessWidget {
                       color: Colors.grey,
                       width: 200,
                       height: 200,
-                      child: const Center(
-                        child: Text('Photo'),
+                      child: Center(
+                        child: Text(context.l10n.photo),
                       ),
                     ),
                   ],
@@ -90,8 +91,8 @@ class PhotoDialog extends StatelessWidget {
                       color: Colors.grey,
                       width: 200,
                       height: 200,
-                      child: const Center(
-                        child: Text('Photo'),
+                      child: Center(
+                        child: Text(context.l10n.photo),
                       ),
                     ),
                     horizontalMargin12,
@@ -99,8 +100,8 @@ class PhotoDialog extends StatelessWidget {
                       color: Colors.grey,
                       width: 200,
                       height: 200,
-                      child: const Center(
-                        child: Text('Photo'),
+                      child: Center(
+                        child: Text(context.l10n.photo),
                       ),
                     ),
                     horizontalMargin12,
@@ -108,8 +109,8 @@ class PhotoDialog extends StatelessWidget {
                       color: Colors.grey,
                       width: 200,
                       height: 200,
-                      child: const Center(
-                        child: Text('Photo'),
+                      child: Center(
+                        child: Text(context.l10n.photo),
                       ),
                     ),
                   ],
@@ -120,7 +121,7 @@ class PhotoDialog extends StatelessWidget {
                     formKey.currentState?.reset();
                     Navigator.of(context).pop();
                   },
-                  child: const Text('Close me'),
+                  child: Text(context.l10n.closeMe),
                 ),
               ],
             ),

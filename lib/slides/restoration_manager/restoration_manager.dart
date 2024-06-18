@@ -42,14 +42,18 @@ class _RestorationManagerContent extends HookWidget {
             children: [
               Center(
                 child: Text(
-                  'Restoration Manager',
+                  context.l10n.restorationManager,
                   style: context.textTheme.title,
                 ),
               ),
               Row(
                 children: [
                   const Spacer(flex: 3),
-                  Bucket(context, step),
+                  Bucket(
+                    context,
+                    step,
+                    text: context.l10n.applicationInformation,
+                  ),
                   Visibility(
                     visible: step >= 5,
                     maintainSize: true,
@@ -116,7 +120,7 @@ class _RestorationManagerContent extends HookWidget {
                         Assets.images.bucket.cup.svg(height: 160),
                         verticalMargin16,
                         Text(
-                          'Childbucket',
+                          context.l10n.childBucket,
                           style: context.textTheme.bodyLarge,
                         ),
                       ],
@@ -127,7 +131,7 @@ class _RestorationManagerContent extends HookWidget {
                         Assets.images.bucket.cup.svg(height: 160),
                         verticalMargin16,
                         Text(
-                          'Childbucket 2',
+                          '${context.l10n.childBucket} 2',
                           style: context.textTheme.bodyLarge,
                         ),
                       ],
@@ -148,7 +152,7 @@ class _RestorationManagerContent extends HookWidget {
                       flex: 5,
                     ),
                     Text(
-                      '🤖 Android has a 1 MB limit‼️',
+                      context.l10n.androidLimit,
                       style: context.textTheme.bodyLarge,
                     ),
                     const Spacer(),

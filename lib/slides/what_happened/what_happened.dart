@@ -49,7 +49,7 @@ class _WhatHappenedContent extends HookWidget {
                       ),
                       const Spacer(),
                       Text(
-                        'What Happened?',
+                        context.l10n.whatHappened,
                         style: context.textTheme.title,
                       ),
                       horizontalMargin48,
@@ -68,7 +68,7 @@ class _WhatHappenedContent extends HookWidget {
                       ),
                       const Spacer(),
                       Text(
-                        'Backgrounded',
+                        context.l10n.backgrounded,
                         style: context.textTheme.title,
                       ),
                       horizontalMargin48,
@@ -87,7 +87,7 @@ class _WhatHappenedContent extends HookWidget {
                       ),
                       const Spacer(),
                       Text(
-                        'Memory Cleared',
+                        context.l10n.memoryCleared,
                         style: context.textTheme.title,
                       ),
                       horizontalMargin48,
@@ -106,7 +106,7 @@ class _WhatHappenedContent extends HookWidget {
                       ),
                       const Spacer(),
                       Text(
-                        'State vanished',
+                        context.l10n.stateVanished,
                         style: context.textTheme.title,
                       ),
                       horizontalMargin48,
