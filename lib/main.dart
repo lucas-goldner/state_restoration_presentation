@@ -42,6 +42,8 @@ class FlutterDeckExample extends StatelessWidget {
         configuration: FlutterDeckConfiguration(
           controls: const FlutterDeckControlsConfiguration(
             shortcuts: FlutterDeckShortcutsConfiguration(
+              nextSlide: SingleActivator(LogicalKeyboardKey.arrowUp),
+              previousSlide: SingleActivator(LogicalKeyboardKey.arrowDown),
               toggleMarker: SingleActivator(
                 LogicalKeyboardKey.keyM,
                 control: true,
