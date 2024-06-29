@@ -39,8 +39,8 @@ class FlutterDeckExample extends StatelessWidget {
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
         ],
-        configuration: FlutterDeckConfiguration(
-          controls: const FlutterDeckControlsConfiguration(
+        configuration: const FlutterDeckConfiguration(
+          controls: FlutterDeckControlsConfiguration(
             shortcuts: FlutterDeckShortcutsConfiguration(
               nextSlide: SingleActivator(LogicalKeyboardKey.arrowUp),
               previousSlide: SingleActivator(LogicalKeyboardKey.arrowDown),
@@ -56,11 +56,11 @@ class FlutterDeckExample extends StatelessWidget {
               ),
             ),
           ),
-          marker: const FlutterDeckMarkerConfiguration(
+          marker: FlutterDeckMarkerConfiguration(
             color: Color(0xFF3FE4C5),
             strokeWidth: 8,
           ),
-          progressIndicator: const FlutterDeckProgressIndicator.gradient(
+          progressIndicator: FlutterDeckProgressIndicator.gradient(
             gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
@@ -71,11 +71,7 @@ class FlutterDeckExample extends StatelessWidget {
             ),
             backgroundColor: Colors.black,
           ),
-          slideSize: FlutterDeckSlideSize.fromAspectRatio(
-            aspectRatio: const FlutterDeckAspectRatio.ratio16x10(),
-            resolution: const FlutterDeckResolution.fromWidth(1440),
-          ),
-          transition: const FlutterDeckTransition.fade(),
+          transition: FlutterDeckTransition.fade(),
         ),
         slides: const [
           SpeakerSlide(),

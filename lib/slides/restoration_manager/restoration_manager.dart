@@ -48,7 +48,7 @@ class _RestorationManagerContent extends HookWidget {
               ),
               Row(
                 children: [
-                  const Spacer(flex: 3),
+                  const Spacer(flex: 2),
                   Bucket(
                     context,
                     step,
