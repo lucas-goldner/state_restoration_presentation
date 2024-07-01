@@ -569,7 +569,9 @@ class _InReviewContentState extends ConsumerState<_InReviewContent> {
                         step >= 7
                             ? '${context.l10n.goRouterProblem} ✅'
                             : context.l10n.goRouterProblem,
-                        style: context.textTheme.bodyLarge,
+                        style: context.textTheme.bodyLarge.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                     verticalMargin16,
@@ -580,7 +582,9 @@ class _InReviewContentState extends ConsumerState<_InReviewContent> {
                         step >= 9
                             ? context.l10n.statehookconsumerwidgetSolution
                             : context.l10n.statehookconsumerwidgetProblem,
-                        style: context.textTheme.bodyLarge,
+                        style: context.textTheme.bodyLarge.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                     verticalMargin16,
@@ -591,7 +595,9 @@ class _InReviewContentState extends ConsumerState<_InReviewContent> {
                         step >= 11
                             ? context.l10n.hooksSolution
                             : context.l10n.hooksProblem,
-                        style: context.textTheme.bodyLarge,
+                        style: context.textTheme.bodyLarge.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ],

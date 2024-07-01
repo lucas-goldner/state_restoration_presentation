@@ -15,7 +15,7 @@ class TextStyles {
 
   static TextStyle get regular => const TextStyle(
         fontSize: 52,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.bold,
         fontFamily: FontFamily.graphik,
         color: regularTextColor,
       );

@@ -72,7 +72,7 @@ class RestorableScrollView extends StatelessWidget {
             ),
             Positioned(
               top: 192,
-              right: 138,
+              right: 380,
               child: AnimatedFadeAtStep(
                 step: 2,
                 currentStep: step,

@@ -66,7 +66,9 @@ class _RestorationManagerContent extends HookWidget {
                         children: [
                           Text(
                             '{ key: value }',
-                            style: context.textTheme.bodyLarge,
+                            style: context.textTheme.bodyLarge.copyWith(
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                           horizontalMargin48,
                           Column(
@@ -74,31 +76,45 @@ class _RestorationManagerContent extends HookWidget {
                             children: [
                               Text(
                                 'null',
-                                style: context.textTheme.bodyLarge,
+                                style: context.textTheme.bodyLarge.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                               Text(
                                 'bool',
-                                style: context.textTheme.bodyLarge,
+                                style: context.textTheme.bodyLarge.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                               Text(
                                 'num',
-                                style: context.textTheme.bodyLarge,
+                                style: context.textTheme.bodyLarge.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                               Text(
                                 'String',
-                                style: context.textTheme.bodyLarge,
+                                style: context.textTheme.bodyLarge.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                               Text(
                                 'Uint8Lists...',
-                                style: context.textTheme.bodyLarge,
+                                style: context.textTheme.bodyLarge.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                               Text(
                                 'List',
-                                style: context.textTheme.bodyLarge,
+                                style: context.textTheme.bodyLarge.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                               Text(
                                 'Map',
-                                style: context.textTheme.bodyLarge,
+                                style: context.textTheme.bodyLarge.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ],
                           ),
@@ -121,7 +137,9 @@ class _RestorationManagerContent extends HookWidget {
                         verticalMargin16,
                         Text(
                           context.l10n.childBucket,
-                          style: context.textTheme.bodyLarge,
+                          style: context.textTheme.bodyLarge.copyWith(
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ],
                     ),
@@ -132,7 +150,9 @@ class _RestorationManagerContent extends HookWidget {
                         verticalMargin16,
                         Text(
                           '${context.l10n.childBucket} 2',
-                          style: context.textTheme.bodyLarge,
+                          style: context.textTheme.bodyLarge.copyWith(
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ],
                     ),
@@ -153,7 +173,9 @@ class _RestorationManagerContent extends HookWidget {
                     ),
                     Text(
                       context.l10n.androidLimit,
-                      style: context.textTheme.bodyLarge,
+                      style: context.textTheme.bodyLarge.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     const Spacer(),
                   ],

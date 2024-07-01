@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_deck/flutter_deck.dart';
 import 'package:graphite/graphite.dart';
 import 'package:state_restoration_presentation/core/extensions/context_ext.dart';
+import 'package:state_restoration_presentation/core/style/breakpoint.dart';
 import 'package:state_restoration_presentation/core/widgets/animated_step_at_fade.dart';
 import 'package:state_restoration_presentation/core/widgets/margins.dart';
 import 'package:state_restoration_presentation/core/widgets/paddings.dart';
@@ -42,87 +43,123 @@ class _DifferentStatesContent extends StatelessWidget {
   final int step;
 
   @override
-  Widget build(BuildContext context) => switch (step) {
-        1 => Padding(
-            padding: allPadding48 + allPadding48,
-            child: Assets.images.confusion.image(),
-          ),
-        2 || 3 || 4 => Center(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                AnimatedFadeAtStep(
-                  step: 3,
-                  currentStep: step,
-                  child: Column(
-                    children: [
-                      const Spacer(),
-                      Text(
-                        context.l10n.instanceStateTitle,
-                        style: context.textTheme.title.copyWith(
-                          fontSize: 44,
-                        ),
+  Widget build(BuildContext context) {
+    return switch (step) {
+      1 => Padding(
+          padding: allPadding48 + allPadding48,
+          child: Assets.images.confusion.image(),
+        ),
+      2 || 3 || 4 => Center(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              AnimatedFadeAtStep(
+                step: 3,
+                currentStep: step,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Spacer(),
+                    Text(
+                      context.l10n.instanceStateTitle,
+                      style: context.textTheme.title.copyWith(
+                        fontSize: 44,
+                        fontWeight: FontWeight.bold,
                       ),
-                      const SizedBox(height: 20),
-                      Text(
-                        context.l10n.scrollViewPosition,
-                        style: context.textTheme.bodyLarge,
+                    ),
+                    const SizedBox(height: 20),
+                    Text(
+                      context.l10n.scrollViewPosition,
+                      style: context.textTheme.bodyLarge.copyWith(
+                        fontWeight: FontWeight.bold,
                       ),
-                      const SizedBox(height: 20),
-                      Text(
-                        context.l10n.navigationStack,
-                        style: context.textTheme.bodyLarge,
+                    ),
+                    const SizedBox(height: 20),
+                    Text(
+                      context.l10n.navigationStack,
+                      style: context.textTheme.bodyLarge.copyWith(
+                        fontWeight: FontWeight.bold,
                       ),
-                      const SizedBox(height: 20),
-                      Text(
-                        context.l10n.selectedTab,
-                        style: context.textTheme.bodyLarge,
+                    ),
+                    const SizedBox(height: 20),
+                    Text(
+                      context.l10n.selectedTab,
+                      style: context.textTheme.bodyLarge.copyWith(
+                        fontWeight: FontWeight.bold,
                       ),
-                      const Spacer(),
-                    ],
+                    ),
+                    const Spacer(),
+                  ],
+                ),
+              ),
+              horizontalMargin32,
+              horizontalMargin32,
+              DirectGraph(
+                list: nodeInputFromJson(list),
+                nodeBuilder: (context, node) => Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(
+                      width: 2,
+                    ),
+                  ),
+                  padding: const EdgeInsets.all(8),
+                  child: Center(
+                    child: Text(
+                      node.id,
+                      style: BreakPoint.of(context) == BreakPoint.big
+                          ? context.textTheme.bodyLarge.copyWith(
+                              fontWeight: FontWeight.bold,
+                            )
+                          : context.textTheme.bodySmall,
+                    ),
                   ),
                 ),
-                horizontalMargin32,
-                horizontalMargin32,
-                DirectGraph(
-                  list: nodeInputFromJson(list),
-                  defaultCellSize: const Size(140, 50),
-                  cellPadding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-                  orientation: MatrixOrientation.Vertical,
+                defaultCellSize: BreakPoint.of(context) == BreakPoint.big
+                    ? const Size(300, 120)
+                    : const Size(140, 100),
+                cellPadding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                orientation: MatrixOrientation.Vertical,
+              ),
+              horizontalMargin32,
+              horizontalMargin32,
+              AnimatedFadeAtStep(
+                step: 4,
+                currentStep: step,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Spacer(),
+                    Text(
+                      context.l10n.appStateTitle,
+                      style: context.textTheme.title.copyWith(
+                        fontSize: 44,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    Text(
+                      context.l10n.amountOfMoney,
+                      style: context.textTheme.bodyLarge.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    Text(
+                      context.l10n.flashcards,
+                      style: context.textTheme.bodyLarge.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const Spacer(),
+                  ],
                 ),
-                horizontalMargin32,
-                horizontalMargin32,
-                AnimatedFadeAtStep(
-                  step: 4,
-                  currentStep: step,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Spacer(),
-                      Text(
-                        context.l10n.appStateTitle,
-                        style: context.textTheme.title.copyWith(
-                          fontSize: 44,
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-                      Text(
-                        context.l10n.amountOfMoney,
-                        style: context.textTheme.bodyLarge,
-                      ),
-                      const SizedBox(height: 20),
-                      Text(
-                        context.l10n.flashcards,
-                        style: context.textTheme.bodyLarge,
-                      ),
-                      const Spacer(),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
-        _ => Text(context.l10n.differentStates),
-      };
+        ),
+      _ => Text(context.l10n.differentStates),
+    };
+  }
 }

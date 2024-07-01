@@ -92,7 +92,9 @@ class _RestorableCounterState extends State<RestorableCounter>
                       currentStep: step,
                       child: Text(
                         context.l10n.addRestorationMixin,
-                        style: context.textTheme.bodyLarge,
+                        style: context.textTheme.bodyLarge.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                     verticalMargin16,
@@ -101,7 +103,9 @@ class _RestorableCounterState extends State<RestorableCounter>
                       currentStep: step,
                       child: Text(
                         context.l10n.overrideRestorationId,
-                        style: context.textTheme.bodyLarge,
+                        style: context.textTheme.bodyLarge.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                     verticalMargin16,
@@ -110,7 +114,9 @@ class _RestorableCounterState extends State<RestorableCounter>
                       currentStep: step,
                       child: Text(
                         context.l10n.registerRestoration,
-                        style: context.textTheme.bodyLarge,
+                        style: context.textTheme.bodyLarge.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                     verticalMargin48,
@@ -120,7 +126,9 @@ class _RestorableCounterState extends State<RestorableCounter>
                       currentStep: step,
                       child: Text(
                         context.l10n.callsCounterValueProperty,
-                        style: context.textTheme.bodyLarge,
+                        style: context.textTheme.bodyLarge.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                     verticalMargin48,
@@ -130,7 +138,9 @@ class _RestorableCounterState extends State<RestorableCounter>
                       currentStep: step,
                       child: Text(
                         context.l10n.disposeReminder,
-                        style: context.textTheme.bodyLarge,
+                        style: context.textTheme.bodyLarge.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ],

@@ -62,7 +62,9 @@ class _PreparationsContent extends HookWidget {
                         children: [
                           Text(
                             context.l10n.widgetWithRestorationId,
-                            style: context.textTheme.bodyLarge,
+                            style: context.textTheme.bodyLarge.copyWith(
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                           Bucket(
                             context,
@@ -82,7 +84,9 @@ class _PreparationsContent extends HookWidget {
                             children: [
                               Text(
                                 context.l10n.widgetWithRestorationScopeId,
-                                style: context.textTheme.bodyLarge,
+                                style: context.textTheme.bodyLarge.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                               verticalMargin48,
                               verticalMargin48,
@@ -142,7 +146,7 @@ class _PreparationsContent extends HookWidget {
             ),
           ),
           Positioned(
-            top: 200,
+            top: 80,
             left: 0,
             right: 0,
             child: AnimatedFadeAtStep(
@@ -151,7 +155,7 @@ class _PreparationsContent extends HookWidget {
               child: Center(
                 child: Text(
                   'RootRestorationScope',
-                  style: context.textTheme.bodyLarge,
+                  style: context.textTheme.title,
                 ),
               ),
             ),

@@ -42,17 +42,18 @@ class _WhatHappenedContent extends HookWidget {
                   delay: 1,
                   child: Row(
                     children: [
+                      const Spacer(),
                       SizedBox(
                         width: 500,
                         child: Assets.images.whatHappenedImages.first
                             .image(width: 500, height: 700),
                       ),
-                      const Spacer(),
+                      horizontalMargin48,
                       Text(
                         context.l10n.whatHappened,
                         style: context.textTheme.title,
                       ),
-                      horizontalMargin48,
+                      const Spacer(),
                     ],
                   ),
                 ),
@@ -61,17 +62,18 @@ class _WhatHappenedContent extends HookWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      const Spacer(),
                       SizedBox(
                         width: 500,
                         child: Assets.images.whatHappenedImages.second
                             .image(width: 500, height: 700),
                       ),
-                      const Spacer(),
+                      horizontalMargin48,
                       Text(
                         context.l10n.backgrounded,
                         style: context.textTheme.title,
                       ),
-                      horizontalMargin48,
+                      const Spacer(),
                     ],
                   ),
                 ),
@@ -80,17 +82,18 @@ class _WhatHappenedContent extends HookWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      const Spacer(),
                       SizedBox(
                         width: 500,
                         child: Assets.images.whatHappenedImages.third
                             .image(width: 500, height: 700),
                       ),
-                      const Spacer(),
+                      horizontalMargin48,
                       Text(
                         context.l10n.memoryCleared,
                         style: context.textTheme.title,
                       ),
-                      horizontalMargin48,
+                      const Spacer(),
                     ],
                   ),
                 ),
@@ -99,17 +102,18 @@ class _WhatHappenedContent extends HookWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      const Spacer(),
                       SizedBox(
                         width: 500,
                         child: Assets.images.whatHappenedImages.fourth
                             .image(width: 500, height: 700),
                       ),
-                      const Spacer(),
+                      horizontalMargin48,
                       Text(
                         context.l10n.stateVanished,
                         style: context.textTheme.title,
                       ),
-                      horizontalMargin48,
+                      const Spacer(),
                     ],
                   ),
                 ),

@@ -86,7 +86,9 @@ class Bucket extends HookWidget {
                   ],
                   child: Text(
                     text,
-                    style: context.textTheme.bodyLarge,
+                    style: context.textTheme.bodyLarge.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -105,7 +107,9 @@ class Bucket extends HookWidget {
                 currentStep: step,
                 child: Text(
                   context.l10n.rootBucket,
-                  style: context.textTheme.bodyLarge,
+                  style: context.textTheme.bodyLarge.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
           ],

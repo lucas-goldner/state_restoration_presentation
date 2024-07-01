@@ -78,49 +78,52 @@ class _Seats extends HookWidget {
 
     listenForStepChanges(stepNumber, colors, hasPlayedAnimation);
 
-    return Column(
-      children: [
-        verticalMargin12,
-        Text(
-          context.l10n.oneOfYouIsGoing,
-          style: context.textTheme.title,
-        ),
-        verticalMargin48,
-        Flexible(
-          child: Padding(
-            padding: horizontalPadding16,
-            child: Row(
-              children: [
-                Flexible(
-                  child: GridView.builder(
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: _seatsCountPerRow,
-                    ),
-                    itemCount: _totalSeatsCount,
-                    itemBuilder: (context, index) => _SeatIcon(
-                      colors.value[index],
-                    ),
-                  ),
-                ),
-                horizontalMargin48,
-                Flexible(
-                  child: GridView.builder(
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: _seatsCountPerRow,
-                    ),
-                    itemCount: _totalSeatsCount,
-                    itemBuilder: (context, index) => _SeatIcon(
-                      colors.value[index + _totalSeatsCount],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 40),
+      child: Column(
+        children: [
+          verticalMargin12,
+          Text(
+            context.l10n.oneOfYouIsGoing,
+            style: context.textTheme.title,
+          ),
+          verticalMargin48,
+          Flexible(
+            child: Padding(
+              padding: horizontalPadding16,
+              child: Row(
+                children: [
+                  Flexible(
+                    child: GridView.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: _seatsCountPerRow,
+                      ),
+                      itemCount: _totalSeatsCount,
+                      itemBuilder: (context, index) => _SeatIcon(
+                        colors.value[index],
+                      ),
                     ),
                   ),
-                ),
-              ],
+                  horizontalMargin48,
+                  Flexible(
+                    child: GridView.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: _seatsCountPerRow,
+                      ),
+                      itemCount: _totalSeatsCount,
+                      itemBuilder: (context, index) => _SeatIcon(
+                        colors.value[index + _totalSeatsCount],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

@@ -88,7 +88,7 @@ class TitleSlide extends FlutterDeckSlideWidget {
               child: Text(
                 context.l10n.presentationTitle,
                 style: context.textTheme.title.copyWith(
-                  fontSize: 54,
+                  fontSize: 68,
                 ),
               )
                   .animate(
