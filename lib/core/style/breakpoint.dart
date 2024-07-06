@@ -8,7 +8,7 @@ enum BreakPoint {
   const BreakPoint(this.screenSize);
 
   factory BreakPoint.of(BuildContext context) =>
-      switch (MediaQuery.of(context).size.width) {
+      switch (MediaQuery.sizeOf(context).width) {
         final double x when x >= BreakPoint.big.screenSize => BreakPoint.big,
         final double x when x >= BreakPoint.mid.screenSize => BreakPoint.mid,
         final double x when x >= BreakPoint.small.screenSize =>
