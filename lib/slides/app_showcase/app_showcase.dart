@@ -131,7 +131,6 @@ class _AppShowCaseState extends State<_AppShowCase> {
                             context.l10n.bootingiPhone,
                             style: const TextStyle(
                               fontSize: 24,
-                              color: Colors.white,
                             ),
                           ),
                         )

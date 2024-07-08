@@ -130,7 +130,6 @@ class _FixedAppShowCaseState extends State<_FixedAppShowCase> {
                             context.l10n.bootingiPhone,
                             style: const TextStyle(
                               fontSize: 24,
-                              color: Colors.white,
                             ),
                           ),
                         )

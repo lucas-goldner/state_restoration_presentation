@@ -78,8 +78,8 @@ class $AssetsImagesGen {
   AssetGenImage get package =>
       const AssetGenImage('assets/images/package.webp');
 
-  /// File path: assets/images/qr.jpeg
-  AssetGenImage get qr => const AssetGenImage('assets/images/qr.jpeg');
+  /// File path: assets/images/qr.png
+  AssetGenImage get qr => const AssetGenImage('assets/images/qr.png');
 
   /// File path: assets/images/restoration_manager.webp
   AssetGenImage get restorationManager =>
