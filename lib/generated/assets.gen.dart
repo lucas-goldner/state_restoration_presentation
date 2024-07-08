@@ -143,6 +143,19 @@ class $AssetsRiveGen {
   List<String> get values => [folder];
 }
 
+class $AssetsVideosGen {
+  const $AssetsVideosGen();
+
+  /// File path: assets/videos/state_lost.mov
+  String get stateLost => 'assets/videos/state_lost.mov';
+
+  /// File path: assets/videos/state_restored.mov
+  String get stateRestored => 'assets/videos/state_restored.mov';
+
+  /// List of all assets
+  List<String> get values => [stateLost, stateRestored];
+}
+
 class $AssetsImagesBucketGen {
   const $AssetsImagesBucketGen();
 
@@ -209,6 +222,7 @@ class Assets {
   static const $AssetsFontsGen fonts = $AssetsFontsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
   static const $AssetsRiveGen rive = $AssetsRiveGen();
+  static const $AssetsVideosGen videos = $AssetsVideosGen();
 }
 
 class AssetGenImage {
