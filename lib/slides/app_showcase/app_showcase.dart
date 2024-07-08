@@ -1,11 +1,9 @@
-import 'dart:async';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deck/flutter_deck.dart';
-import 'package:flutter_webrtc/flutter_webrtc.dart';
 import 'package:state_restoration_presentation/core/extensions/context_ext.dart';
 import 'package:state_restoration_presentation/core/widgets/margins.dart';
+import 'package:state_restoration_presentation/generated/assets.gen.dart';
+import 'package:video_player/video_player.dart';
 
 class AppShowCaseSlide extends FlutterDeckSlideWidget {
   const AppShowCaseSlide()
@@ -17,8 +15,6 @@ class AppShowCaseSlide extends FlutterDeckSlideWidget {
             steps: 2,
           ),
         );
-
-  static String tag = 'get_display_media_sample';
 
   @override
   FlutterDeckSlide build(BuildContext context) => FlutterDeckSlide.custom(
@@ -34,74 +30,29 @@ class _AppShowCase extends StatefulWidget {
 }
 
 class _AppShowCaseState extends State<_AppShowCase> {
-  MediaStream? _localStream;
-  final RTCVideoRenderer _localRenderer = RTCVideoRenderer();
-  DesktopCapturerSource? selectedSource;
-  final SourceType _sourceType = SourceType.Window;
+  late VideoPlayerController _controller;
 
   @override
   void initState() {
     super.initState();
-    initRenderers();
+    super.initState();
+    _controller = VideoPlayerController.asset(Assets.videos.stateLost)
+      ..initialize().then((_) {
+        setState(() {});
+      });
   }
 
   @override
-  void deactivate() {
-    super.deactivate();
-    _localRenderer.dispose();
-  }
-
-  Future<void> initRenderers() async {
-    await _localRenderer.initialize();
-  }
-
-  Future<void> selectScreenSourceDialog(BuildContext context) async {
-    if (WebRTC.platformIsDesktop) {
-      final source = await _getBezelSoftwareSource();
-      if (source == null) return;
-
-      setState(() {
-        selectedSource = source;
-      });
-
-      try {
-        final stream =
-            await navigator.mediaDevices.getDisplayMedia(<String, dynamic>{
-          'video': selectedSource == null
-              ? true
-              : {
-                  'deviceId': {'exact': selectedSource!.id},
-                  'mandatory': {'frameRate': 60.0},
-                },
-        });
-        stream.getVideoTracks()[0].onEnded = () {};
-        _localStream = stream;
-        _localRenderer.srcObject = _localStream;
-      } catch (e) {
-        if (kDebugMode) {
-          print(e);
-        }
-      }
-
-      if (!mounted) return;
-    }
-  }
-
-  Future<DesktopCapturerSource?> _getBezelSoftwareSource() async {
-    final sources = await desktopCapturer.getSources(types: [_sourceType]);
-    const softwareWindowName = 'Lucas’s iPhone';
-    final source = sources.firstWhere(
-      (source) => source.name == softwareWindowName,
-    );
-
-    return source;
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) => FlutterDeckSlideStepsListener(
         listener: (context, stepNumber) {
           if (stepNumber == 2) {
-            selectScreenSourceDialog(context);
+            _controller.play();
           }
         },
         child: Row(
@@ -125,7 +76,7 @@ class _AppShowCaseState extends State<_AppShowCase> {
                         .flutterDeckTheme.materialTheme.colorScheme.surface,
                     borderRadius: BorderRadius.circular(24),
                   ),
-                  child: _localStream == null
+                  child: !_controller.value.isPlaying
                       ? Center(
                           child: Text(
                             context.l10n.bootingiPhone,
@@ -135,9 +86,7 @@ class _AppShowCaseState extends State<_AppShowCase> {
                           ),
                         )
                       : Center(
-                          child: RTCVideoView(
-                            _localRenderer,
-                          ),
+                          child: VideoPlayer(_controller),
                         ),
                 ),
                 const Spacer(),
