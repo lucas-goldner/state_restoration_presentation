@@ -98,9 +98,9 @@ class TitleSlide extends FlutterDeckSlideWidget {
                   .shimmer(
                     duration: 3.seconds,
                     colors: [
-                      flutterconBlue,
-                      flutterconGreen,
-                      flutterconBlue,
+                      flutterkaigiPink,
+                      flutterkaigiTurquoise,
+                      flutterkaigiPink,
                     ],
                     stops: [0, 0.8, 1],
                     curve: Curves.easeInQuad,

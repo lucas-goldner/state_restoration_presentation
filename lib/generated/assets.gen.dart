@@ -36,6 +36,10 @@ class $AssetsImagesGen {
 
   $AssetsImagesBucketGen get bucket => const $AssetsImagesBucketGen();
 
+  /// File path: assets/images/charactercard_template.png
+  AssetGenImage get charactercardTemplate =>
+      const AssetGenImage('assets/images/charactercard_template.png');
+
   /// File path: assets/images/confusion.jpg
   AssetGenImage get confusion =>
       const AssetGenImage('assets/images/confusion.jpg');
@@ -112,6 +116,7 @@ class $AssetsImagesGen {
   /// List of all assets
   List<dynamic> get values => [
         androidDevSetting,
+        charactercardTemplate,
         confusion,
         database,
         file,
