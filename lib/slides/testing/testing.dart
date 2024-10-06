@@ -77,21 +77,18 @@ void main() {
 
     return FlutterDeckSlide.blank(
       builder: (context) => FlutterDeckSlideStepsBuilder(
-        builder: (context, step) {
-          print(step);
-          return SingleChildScrollView(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                FlutterDeckCodeHighlight(
-                  code: step == 1
-                      ? formatCode(codeSnippet)
-                      : formatCode(codeSnippetFixed),
-                ),
-              ],
-            ),
-          );
-        },
+        builder: (context, step) => SingleChildScrollView(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              FlutterDeckCodeHighlight(
+                code: step == 1
+                    ? formatCode(codeSnippet)
+                    : formatCode(codeSnippetFixed),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

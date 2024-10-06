@@ -10,6 +10,7 @@ import 'package:state_restoration_presentation/slides/dev_tips/dev_tips.dart';
 import 'package:state_restoration_presentation/slides/fix_showcase/fix_showcase.dart';
 import 'package:state_restoration_presentation/slides/long_form/long_form.dart';
 import 'package:state_restoration_presentation/slides/outro/outro.dart';
+import 'package:state_restoration_presentation/slides/problem/problem.dart';
 import 'package:state_restoration_presentation/slides/restoration_ids/restorationids.dart';
 import 'package:state_restoration_presentation/slides/restoration_manager/restoration_manager.dart';
 import 'package:state_restoration_presentation/slides/restorationmixin/restorablemixin.dart';
@@ -74,6 +75,7 @@ class FlutterDeckExample extends StatelessWidget {
           TitleSlide(),
           AppShowCaseSlide(),
           WhatHappenedSlide(),
+          ProblemSlide(),
           LongFormSlide(),
           SavingStateSlide(),
           DifferentStatesSlide(),
