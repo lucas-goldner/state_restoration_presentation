@@ -29,13 +29,16 @@ class DifferentStatesSlide extends FlutterDeckSlideWidget {
 }
 
 const list = '['
-    '{"id":"Data","next":[{"outcome":"Who needs it?"}]},'
-    '{"id":"Who needs it?","next":[{"outcome":"Single Widget"},{"outcome":"Some widgets"},{"outcome":"Most Widgets"}]},'
-    '{"id":"Single Widget","next":[{"outcome":"Ephermal State"}]},'
-    '{"id":"Some widgets","next":[{"outcome":"App State"}]},{"id":"Most Widgets","next":[{"outcome":"App State"}]},'
-    '{"id":"App State","next":[]},'
-    '{"id":"Ephermal State","next":[]}'
+    '{"id":"データ","next":[{"outcome":"誰に大事?"}]},'
+    '{"id":"誰に大事?","next":[{"outcome":"一つのWidget"},{"outcome":"Some widgets"},{"outcome":"Most Widgets"}]},'
+    '{"id":"一つのWidget","next":[{"outcome":"Instance state 儚い状態"}]},'
+    '{"id":"Some widgets","next":[{"outcome":"App State アプリ状態"}]},{"id":"Most Widgets","next":[{"outcome":"App State アプリ状態"}]},'
+    '{"id":"App State アプリ状態","next":[]},'
+    '{"id":"Instance state 儚い状態","next":[]}'
     ']';
+
+// Restoration\nManager in Katakana
+// リストアリングマネージャー
 
 class _DifferentStatesContent extends StatelessWidget {
   const _DifferentStatesContent(this.context, this.step);
@@ -117,9 +120,9 @@ class _DifferentStatesContent extends StatelessWidget {
                 ),
                 defaultCellSize: BreakPoint.of(context) == BreakPoint.big
                     ? const Size(300, 120)
-                    : const Size(140, 100),
+                    : const Size(180, 160),
                 cellPadding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                    const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
                 orientation: MatrixOrientation.Vertical,
               ),
               horizontalMargin32,

@@ -41,9 +41,17 @@ class _RestorationManagerContent extends HookWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Center(
-                child: Text(
-                  context.l10n.restorationManager,
-                  style: context.textTheme.title,
+                child: Column(
+                  children: [
+                    Text(
+                      context.l10n.restorationManager,
+                      style: context.textTheme.title,
+                    ),
+                    Text(
+                      context.l10n.restorationManagerJATranslation,
+                      style: context.textTheme.bodyLarge,
+                    ),
+                  ],
                 ),
               ),
               Row(

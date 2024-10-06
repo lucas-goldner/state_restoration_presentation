@@ -14,9 +14,8 @@ import 'package:state_restoration_presentation/slides/restoration_ids/restoratio
 import 'package:state_restoration_presentation/slides/restoration_manager/restoration_manager.dart';
 import 'package:state_restoration_presentation/slides/restorationmixin/restorablemixin.dart';
 import 'package:state_restoration_presentation/slides/saving_state/saving_state.dart';
-import 'package:state_restoration_presentation/slides/speaker/speaker.dart';
+import 'package:state_restoration_presentation/slides/title/speaker.dart';
 import 'package:state_restoration_presentation/slides/states_difference/different_states_slide.dart';
-import 'package:state_restoration_presentation/slides/title/title.dart';
 import 'package:state_restoration_presentation/slides/what_happened/what_happened.dart';
 
 void main() => runApp(const FlutterDeckExample());
@@ -71,7 +70,6 @@ class FlutterDeckExample extends StatelessWidget {
           transition: FlutterDeckTransition.fade(),
         ),
         slides: const [
-          SpeakerSlide(),
           TitleSlide(),
           AppShowCaseSlide(),
           WhatHappenedSlide(),

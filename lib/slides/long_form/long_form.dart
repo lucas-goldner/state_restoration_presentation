@@ -56,11 +56,6 @@ class LongFormSlide extends FlutterDeckSlideWidget {
                 ),
                 TextFormField(
                   decoration: InputDecoration(
-                    hintText: context.l10n.birthdayHintText,
-                  ),
-                ),
-                TextFormField(
-                  decoration: InputDecoration(
                     hintText: context.l10n.favoriteWidgetHintText,
                   ),
                 ),
@@ -141,9 +136,12 @@ class LongFormSlide extends FlutterDeckSlideWidget {
                       );
                     },
                     child: Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
                       width: 200,
                       height: 200,
-                      color: Colors.grey,
                       child: Center(
                         child: Text(context.l10n.chooseProfilePictureLabel),
                       ),
@@ -151,8 +149,8 @@ class LongFormSlide extends FlutterDeckSlideWidget {
                   ),
                 ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Spacer(),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 16),
                       child: ElevatedButton(

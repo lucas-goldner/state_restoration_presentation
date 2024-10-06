@@ -31,7 +31,10 @@ class OutroSlide extends FlutterDeckSlideWidget {
                   children: [
                     Text(
                       context.l10n.thanks,
-                      style: context.textTheme.title,
+                      style: context.textTheme.bodyLarge.copyWith(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 48,
+                      ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 28, top: 12),
@@ -53,13 +56,35 @@ class OutroSlide extends FlutterDeckSlideWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                ShaderMask(
+                  shaderCallback: (bounds) => const LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment(0.8, 1),
+                    colors: [
+                      Color(0xFF60d7fb),
+                      Color(0xFF52a7f8),
+                      Color(0xFF6d6ef3),
+                      Color(0xFFa24ef2),
+                      Color(0xFFa94af1),
+                      Color(0xFFda33ef),
+                      Color(0xFFf22bee),
+                    ],
+                  ).createShader(bounds),
+                  child: const Text(
+                    'flutter_deck',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 72,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                horizontalMargin12,
                 Text(
                   context.l10n.madeWith,
                   style: context.textTheme.bodyMedium,
                   textAlign: TextAlign.center,
                 ),
-                horizontalMargin12,
-                Assets.images.flutterDeckLogo.image(),
               ],
             ),
           ],

@@ -25,7 +25,7 @@ class RestorationIds extends FlutterDeckSlideWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
-        restorationId: "restorationId", // Provide the id here
+        restorationId: "restorationIdText", //ここにIDを指定
         obscureText: true,
         decoration: InputDecoration(
           border: OutlineInputBorder(),
@@ -41,7 +41,7 @@ class RestorableScrollView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const SingleChildScrollView(
-      restorationId: 'restorationId', // Provide the id here
+      restorationId: 'restorationIdScroll', //ここにIDを指定
       child: Text('Scrollable content'),
     );
   }
@@ -60,6 +60,7 @@ class RestorableScrollView extends StatelessWidget {
         title: const Text('Sample Code'),
       ),
       floatingActionButton: FloatingActionButton(
+        // ここでrestorablePushを使って遷移する
         onPressed: () => Navigator.restorablePush(
           context, _myRouteBuilder,
         ),
@@ -72,13 +73,12 @@ class RestorableScrollView extends StatelessWidget {
             ),
             Positioned(
               top: 192,
-              right: 380,
               child: AnimatedFadeAtStep(
                 step: 2,
                 currentStep: step,
                 child: const OutlinedBorderWidget(
-                  width: 320,
-                  height: 60,
+                  width: 560,
+                  height: 100,
                   size: 100,
                   borderColor: Colors.red,
                   borderWidth: 10,

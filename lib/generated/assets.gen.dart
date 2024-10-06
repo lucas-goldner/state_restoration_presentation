@@ -151,8 +151,8 @@ class $AssetsRiveGen {
 class $AssetsVideosGen {
   const $AssetsVideosGen();
 
-  /// File path: assets/videos/state_lost.mov
-  String get stateLost => 'assets/videos/state_lost.mov';
+  /// File path: assets/videos/state_lost.mp4
+  String get stateLost => 'assets/videos/state_lost.mp4';
 
   /// File path: assets/videos/state_restored.mov
   String get stateRestored => 'assets/videos/state_restored.mov';

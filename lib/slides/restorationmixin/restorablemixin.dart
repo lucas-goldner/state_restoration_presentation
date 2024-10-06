@@ -10,7 +10,7 @@ class RestorationMixinSlide extends FlutterDeckSlideWidget {
           configuration: const FlutterDeckSlideConfiguration(
             route: '/restorationMixin',
             header: FlutterDeckHeaderConfiguration(
-              title: 'Using RestorationMixin',
+              title: 'RestorationMixin使い方',
             ),
             steps: 6,
           ),

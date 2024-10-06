@@ -4,7 +4,6 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_shader_snap/flutter_shader_snap.dart';
 import 'package:state_restoration_presentation/core/extensions/context_ext.dart';
 import 'package:state_restoration_presentation/core/widgets.dart';
-import 'package:state_restoration_presentation/generated/assets.gen.dart';
 import 'package:state_restoration_presentation/slides/saving_state/model/possible_options.dart';
 
 class SavingStateSlide extends FlutterDeckSlideWidget {
@@ -13,7 +12,7 @@ class SavingStateSlide extends FlutterDeckSlideWidget {
           configuration: const FlutterDeckSlideConfiguration(
             route: '/saving-state',
             title: 'Saving State!',
-            steps: 9,
+            steps: 7,
           ),
         );
 
@@ -95,45 +94,8 @@ class _SavingStateContent extends HookWidget {
                         ],
                       ),
                     ),
-                    Column(
-                      children: [
-                        Visibility(
-                          visible: 6 == steps,
-                          child: FadeAnimation(
-                            delay: 1,
-                            child: Column(
-                              children: [
-                                Assets.images.hiddenDatabase.image(
-                                  width: 100,
-                                  height: 100,
-                                ),
-                                verticalMargin16,
-                              ],
-                            ),
-                          ),
-                        ),
-                        AnimatedFadeAtStep(
-                          step: 5,
-                          currentStep: steps,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              PossibleOptions.package.asset.image(
-                                width: 100,
-                                height: 100,
-                              ),
-                              Text(
-                                PossibleOptions.package
-                                    .getLocalizedName(context),
-                                style: context.textTheme.bodyMedium,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
                     AnimatedFadeAtStep(
-                      step: 7,
+                      step: 5,
                       currentStep: steps,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -150,7 +112,7 @@ class _SavingStateContent extends HookWidget {
                       ),
                     ),
                     AnimatedFadeAtStep(
-                      step: 8,
+                      step: 6,
                       currentStep: steps,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -171,7 +133,7 @@ class _SavingStateContent extends HookWidget {
                 ),
                 const Spacer(),
                 Visibility(
-                  visible: 9 <= steps,
+                  visible: 7 <= steps,
                   child: Row(
                     children: [
                       Text(

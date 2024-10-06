@@ -9,10 +9,10 @@ class DevTipsSlide extends FlutterDeckSlideWidget {
   const DevTipsSlide()
       : super(
           configuration: const FlutterDeckSlideConfiguration(
-            steps: 5,
+            steps: 3,
             route: '/dev-tips-slide',
             header: FlutterDeckHeaderConfiguration(
-              title: 'Development Tips',
+              title: '開発向けのヒント',
             ),
           ),
         );
@@ -53,22 +53,6 @@ class DevTipsSlide extends FlutterDeckSlideWidget {
               currentStep: step,
               child: Text(
                 context.l10n.devTip3Reason,
-                style: context.textTheme.bodyMedium,
-              ),
-            ),
-            AnimatedFadeAtStep(
-              step: 4,
-              currentStep: step,
-              child: Text(
-                context.l10n.devTip4,
-                style: context.textTheme.bodyMedium,
-              ),
-            ),
-            AnimatedFadeAtStep(
-              step: 5,
-              currentStep: step,
-              child: Text(
-                context.l10n.devTip5,
                 style: context.textTheme.bodyMedium,
               ),
             ),

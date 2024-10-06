@@ -85,7 +85,9 @@ class _AppShowCaseState extends State<_AppShowCase> {
                             ),
                           ),
                         )
-                      : Center(
+                      : ClipRRect(
+                          borderRadius: BorderRadius.circular(60),
+                          clipper: IPhoneClipper(),
                           child: VideoPlayer(_controller),
                         ),
                 ),
@@ -95,4 +97,21 @@ class _AppShowCaseState extends State<_AppShowCase> {
           ],
         ),
       );
+}
+
+class IPhoneClipper extends CustomClipper<RRect> {
+  @override
+  RRect getClip(Size size) {
+    return RRect.fromLTRBXY(
+      5,
+      10,
+      size.width - 5,
+      size.height - 5,
+      60,
+      60,
+    );
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<RRect> oldClipper) => false;
 }

@@ -4,7 +4,7 @@ import 'package:state_restoration_presentation/generated/assets.gen.dart';
 
 enum PossibleOptions {
   database,
-  package,
+
   file,
   restorationManager;
 }
@@ -14,8 +14,6 @@ extension PossibleOptionsExtension on PossibleOptions {
     switch (this) {
       case PossibleOptions.database:
         return context.l10n.databaseOption;
-      case PossibleOptions.package:
-        return context.l10n.packageOption;
       case PossibleOptions.file:
         return context.l10n.fileOption;
       case PossibleOptions.restorationManager:
@@ -25,7 +23,6 @@ extension PossibleOptionsExtension on PossibleOptions {
 
   AssetGenImage get asset => switch (this) {
         PossibleOptions.database => Assets.images.database,
-        PossibleOptions.package => Assets.images.package,
         PossibleOptions.file => Assets.images.file,
         PossibleOptions.restorationManager => Assets.images.restorationManager
       };

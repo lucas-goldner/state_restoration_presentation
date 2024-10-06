@@ -79,7 +79,7 @@ class _FixedAppShowCaseState extends State<_FixedAppShowCase> {
                   child: !_controller.value.isPlaying
                       ? Center(
                           child: Text(
-                            context.l10n.bootingiPhone,
+                            context.l10n.bootingAndroid,
                             style: const TextStyle(
                               fontSize: 24,
                             ),
