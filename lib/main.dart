@@ -8,13 +8,13 @@ import 'package:state_restoration_presentation/core/style/theme.dart';
 import 'package:state_restoration_presentation/slides/app_showcase/app_showcase.dart';
 import 'package:state_restoration_presentation/slides/dev_tips/dev_tips.dart';
 import 'package:state_restoration_presentation/slides/fix_showcase/fix_showcase.dart';
-import 'package:state_restoration_presentation/slides/long_form/long_form.dart';
 import 'package:state_restoration_presentation/slides/outro/outro.dart';
 import 'package:state_restoration_presentation/slides/problem/problem.dart';
 import 'package:state_restoration_presentation/slides/restoration_ids/restorationids.dart';
 import 'package:state_restoration_presentation/slides/restoration_manager/restoration_manager.dart';
 import 'package:state_restoration_presentation/slides/restorationmixin/restorablemixin.dart';
 import 'package:state_restoration_presentation/slides/saving_state/saving_state.dart';
+import 'package:state_restoration_presentation/slides/setup/setup_slide.dart';
 import 'package:state_restoration_presentation/slides/testing/testing.dart';
 import 'package:state_restoration_presentation/slides/title/speaker.dart';
 import 'package:state_restoration_presentation/slides/states_difference/different_states_slide.dart';
@@ -69,17 +69,17 @@ class FlutterDeckExample extends StatelessWidget {
             ),
             backgroundColor: Colors.black,
           ),
-          transition: FlutterDeckTransition.fade(),
+          transition: FlutterDeckTransition.slide(),
         ),
         slides: const [
           TitleSlide(),
           AppShowCaseSlide(),
           WhatHappenedSlide(),
           ProblemSlide(),
-          LongFormSlide(),
           SavingStateSlide(),
           DifferentStatesSlide(),
           RestorationManagerSlide(),
+          SetupSlide(),
           RestorationIds(),
           RestorationMixinSlide(),
           DevTipsSlide(),

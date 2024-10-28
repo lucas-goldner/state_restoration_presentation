@@ -7,8 +7,6 @@ import 'package:state_restoration_presentation/core/extensions/context_ext.dart'
 import 'package:state_restoration_presentation/core/style/breakpoint.dart';
 import 'package:state_restoration_presentation/core/widgets/animated_step_at_fade.dart';
 import 'package:state_restoration_presentation/core/widgets/margins.dart';
-import 'package:state_restoration_presentation/core/widgets/paddings.dart';
-import 'package:state_restoration_presentation/generated/assets.gen.dart';
 
 class DifferentStatesSlide extends FlutterDeckSlideWidget {
   const DifferentStatesSlide()
@@ -16,7 +14,7 @@ class DifferentStatesSlide extends FlutterDeckSlideWidget {
           configuration: const FlutterDeckSlideConfiguration(
             route: '/different-states',
             title: 'Different States',
-            steps: 4,
+            steps: 3,
           ),
         );
 
@@ -30,9 +28,9 @@ class DifferentStatesSlide extends FlutterDeckSlideWidget {
 
 const list = '['
     '{"id":"データ","next":[{"outcome":"誰に大事?"}]},'
-    '{"id":"誰に大事?","next":[{"outcome":"一つのWidget"},{"outcome":"Some widgets"},{"outcome":"Most Widgets"}]},'
+    '{"id":"誰に大事?","next":[{"outcome":"一つのWidget"},{"outcome":"いくつかのwidget"},{"outcome":"ほとんどのWidget"}]},'
     '{"id":"一つのWidget","next":[{"outcome":"Instance state 儚い状態"}]},'
-    '{"id":"Some widgets","next":[{"outcome":"App State アプリ状態"}]},{"id":"Most Widgets","next":[{"outcome":"App State アプリ状態"}]},'
+    '{"id":"いくつかのwidget","next":[{"outcome":"App State アプリ状態"}]},{"id":"ほとんどのWidget","next":[{"outcome":"App State アプリ状態"}]},'
     '{"id":"App State アプリ状態","next":[]},'
     '{"id":"Instance state 儚い状態","next":[]}'
     ']';
@@ -47,122 +45,114 @@ class _DifferentStatesContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return switch (step) {
-      1 => Padding(
-          padding: allPadding48 + allPadding48,
-          child: Assets.images.confusion.image(),
-        ),
-      2 || 3 || 4 => Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              AnimatedFadeAtStep(
-                step: 3,
-                currentStep: step,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Spacer(),
-                    Text(
-                      context.l10n.instanceStateTitle,
-                      style: context.textTheme.title.copyWith(
-                        fontSize: 44,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    Text(
-                      context.l10n.scrollViewPosition,
-                      style: context.textTheme.bodyLarge.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    Text(
-                      context.l10n.navigationStack,
-                      style: context.textTheme.bodyLarge.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    Text(
-                      context.l10n.selectedTab,
-                      style: context.textTheme.bodyLarge.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const Spacer(),
-                  ],
-                ),
-              ),
-              horizontalMargin32,
-              horizontalMargin32,
-              DirectGraph(
-                list: nodeInputFromJson(list),
-                nodeBuilder: (context, node) => Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                      width: 2,
-                    ),
-                  ),
-                  padding: const EdgeInsets.all(8),
-                  child: Center(
-                    child: Text(
-                      node.id,
-                      style: BreakPoint.of(context) == BreakPoint.big
-                          ? context.textTheme.bodyLarge.copyWith(
-                              fontWeight: FontWeight.bold,
-                            )
-                          : context.textTheme.bodySmall,
-                    ),
+    return Center(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          AnimatedFadeAtStep(
+            step: 2,
+            currentStep: step,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Spacer(),
+                Text(
+                  context.l10n.instanceStateTitle,
+                  style: context.textTheme.title.copyWith(
+                    fontSize: 44,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-                defaultCellSize: BreakPoint.of(context) == BreakPoint.big
-                    ? const Size(300, 120)
-                    : const Size(180, 160),
-                cellPadding:
-                    const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
-                orientation: MatrixOrientation.Vertical,
-              ),
-              horizontalMargin32,
-              horizontalMargin32,
-              AnimatedFadeAtStep(
-                step: 4,
-                currentStep: step,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Spacer(),
-                    Text(
-                      context.l10n.appStateTitle,
-                      style: context.textTheme.title.copyWith(
-                        fontSize: 44,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    Text(
-                      context.l10n.amountOfMoney,
-                      style: context.textTheme.bodyLarge.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    Text(
-                      context.l10n.flashcards,
-                      style: context.textTheme.bodyLarge.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const Spacer(),
-                  ],
+                const SizedBox(height: 20),
+                Text(
+                  context.l10n.scrollViewPosition,
+                  style: context.textTheme.bodyLarge.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-            ],
+                const SizedBox(height: 20),
+                Text(
+                  context.l10n.navigationStack,
+                  style: context.textTheme.bodyLarge.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Text(
+                  context.l10n.selectedTab,
+                  style: context.textTheme.bodyLarge.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const Spacer(),
+              ],
+            ),
           ),
-        ),
-      _ => Text(context.l10n.differentStates),
-    };
+          horizontalMargin32,
+          horizontalMargin32,
+          DirectGraph(
+            list: nodeInputFromJson(list),
+            nodeBuilder: (context, node) => Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(
+                  width: 2,
+                ),
+              ),
+              padding: const EdgeInsets.all(8),
+              child: Center(
+                child: Text(
+                  node.id,
+                  style: BreakPoint.of(context) == BreakPoint.big
+                      ? context.textTheme.bodyLarge.copyWith(
+                          fontWeight: FontWeight.bold,
+                        )
+                      : context.textTheme.bodySmall,
+                ),
+              ),
+            ),
+            defaultCellSize: BreakPoint.of(context) == BreakPoint.big
+                ? const Size(300, 120)
+                : const Size(180, 160),
+            cellPadding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
+            orientation: MatrixOrientation.Vertical,
+          ),
+          horizontalMargin32,
+          horizontalMargin32,
+          AnimatedFadeAtStep(
+            step: 3,
+            currentStep: step,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Spacer(),
+                Text(
+                  context.l10n.appStateTitle,
+                  style: context.textTheme.title.copyWith(
+                    fontSize: 44,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Text(
+                  context.l10n.amountOfMoney,
+                  style: context.textTheme.bodyLarge.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Text(
+                  context.l10n.flashcards,
+                  style: context.textTheme.bodyLarge.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const Spacer(),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
