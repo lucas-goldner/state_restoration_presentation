@@ -1,12 +1,10 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_deck/flutter_deck.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:state_restoration_presentation/core/extensions/context_ext.dart';
 import 'package:state_restoration_presentation/core/util/format_code.dart';
 import 'package:state_restoration_presentation/core/widgets.dart';
 import 'package:state_restoration_presentation/generated/assets.gen.dart';
-import 'package:state_restoration_presentation/slides/restoration_manager/widgets/bucket.dart';
 
 class SetupSlide extends FlutterDeckSlideWidget {
   const SetupSlide()
@@ -14,7 +12,7 @@ class SetupSlide extends FlutterDeckSlideWidget {
           configuration: const FlutterDeckSlideConfiguration(
             route: '/setup',
             title: 'Setup',
-            steps: 9,
+            steps: 4,
           ),
         );
 
@@ -36,84 +34,8 @@ class _PreparationsContent extends HookWidget {
   @override
   Widget build(BuildContext context) => Stack(
         children: [
-          Visibility(
-            visible: step <= 6,
-            child: Column(
-              children: [
-                const Spacer(),
-                AnimatedFadeAtStep(
-                  step: 1,
-                  currentStep: step,
-                  child: Text(
-                    context.l10n.restorationIdRestorationScopeId,
-                    style: context.textTheme.title.copyWith(
-                      fontSize: 40,
-                    ),
-                  ),
-                ),
-                const Spacer(),
-                Row(
-                  children: [
-                    const Spacer(),
-                    AnimatedFadeAtStep(
-                      step: 2,
-                      currentStep: step,
-                      child: Column(
-                        children: [
-                          Text(
-                            context.l10n.widgetWithRestorationId,
-                            style: context.textTheme.bodyLarge.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Bucket(
-                            context,
-                            step - 3,
-                            text: context.l10n.dataIntoSurroundingChildBucket,
-                          ),
-                        ],
-                      ),
-                    ),
-                    if (5 <= step) const Spacer(),
-                    AnimatedFadeAtStep(
-                      step: 5,
-                      currentStep: step,
-                      child: Row(
-                        children: [
-                          Column(
-                            children: [
-                              Text(
-                                context.l10n.widgetWithRestorationScopeId,
-                                style: context.textTheme.bodyLarge.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              verticalMargin48,
-                              verticalMargin48,
-                              verticalMargin32,
-                              Row(
-                                children: [
-                                  Text(
-                                    context.l10n.wordNew,
-                                    style: context.textTheme.bodyLarge,
-                                  ),
-                                  Assets.images.bucket.cup.svg(height: 160),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                    const Spacer(),
-                  ],
-                ),
-                const Spacer(),
-              ],
-            ),
-          ),
           AnimatedFadeAtStep(
-            step: 6,
+            step: 1,
             currentStep: step,
             child: Center(
               child: FlutterDeckCodeHighlight(
@@ -135,7 +57,7 @@ class _PreparationsContent extends HookWidget {
             left: 0,
             right: 0,
             child: AnimatedFadeAtStep(
-              step: 7,
+              step: 2,
               currentStep: step,
               child: Center(
                 child: Text(
@@ -146,7 +68,7 @@ class _PreparationsContent extends HookWidget {
             ),
           ),
           AnimatedFadeAtStep(
-            step: 8,
+            step: 3,
             currentStep: step,
             child: Center(
               child: FlutterDeckCodeHighlight(
@@ -166,7 +88,7 @@ class _PreparationsContent extends HookWidget {
             ),
           ),
           AnimatedFadeAtStep(
-            step: 9,
+            step: 4,
             currentStep: step,
             child: Stack(
               children: [
