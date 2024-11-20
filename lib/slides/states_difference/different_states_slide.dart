@@ -141,12 +141,6 @@ class _DifferentStatesContent extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
-                Text(
-                  context.l10n.flashcards,
-                  style: context.textTheme.bodyLarge.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
                 const Spacer(),
               ],
             ),
